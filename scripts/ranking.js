@@ -1,6 +1,6 @@
 var Ranking = function (){
 
-    this.Ranking = []
+    this.ranking = []
 
 }
 
@@ -9,5 +9,5 @@ var Ranking = function (){
 Ranking.prototype.showPlayes = function(){
 
 
-    
+
 }
