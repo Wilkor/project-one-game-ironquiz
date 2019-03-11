@@ -49,7 +49,7 @@ Quiz.prototype.finishGame = function () {
 
     var r = new Ranking()
     var p = new Player()
-    r.ranking.push(p.fullName(), p.score())
+    r.ranking.push(p.getNickName(), p.score())
 
 }
 

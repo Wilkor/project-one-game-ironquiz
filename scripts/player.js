@@ -1,11 +1,11 @@
-var Player = function (name,surname){
+var Player = function (name){
 
-   this.name = name;
-   this.surname = surname;
-
-   this.fullName =  function(){
-    return `${this.name} ${this.surname}`
+   this.nickname = name;
+ 
+   this.getNickName =  function(){
+    return this.nickname
    }
+
 
    this.score = function(){
      var s = new Quiz();
