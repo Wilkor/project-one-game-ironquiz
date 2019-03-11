@@ -1,6 +1,6 @@
-var Player = function (name){
+var Player = function (nickname){
 
-   this.nickname = name;
+   this.nickname = nickname;
  
    this.getNickName =  function(){
     return this.nickname
