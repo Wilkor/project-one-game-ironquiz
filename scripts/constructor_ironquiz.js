@@ -11,6 +11,9 @@ var Quiz = function (name) {
     }
 };
 
+
+const p = new Player();
+const r = new Ranking()
 Quiz.prototype.checkResponse = function (filter) {
 
     this.questions.forEach(element => {
@@ -26,6 +29,7 @@ Quiz.prototype.checkResponse = function (filter) {
                         element.statusQuestion = false
                         this.countResponseTrue += 10;
 
+                        database.nickname = p.getCookie();
                         database.countResponseTrue = this.countResponseTrue;
                     
 
@@ -33,8 +37,8 @@ Quiz.prototype.checkResponse = function (filter) {
                         this.renderQuestion()
                     } else {
 
-                       console.log(JSON.stringify(database))
-
+                        r.ranking.push(database)
+                         
                         document.getElementById("ranking").click();
                     }
                 }
