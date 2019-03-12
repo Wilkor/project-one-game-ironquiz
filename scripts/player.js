@@ -21,11 +21,11 @@ Player.prototype.setCookie = function setCookie() {
    var d = new Date();
    d.setTime(d.getTime() + (30*24*60*60*1000));
    var expires = "expires=" + d.toGMTString();
-   document.cookie = "ironquiz" + "=" + this.getNickName() + ";" + expires + ";path=/";
+   document.cookie = this.getNickName() + "=" + this.getNickName() + ";" + expires + ";path=/";
 
  }
  
- function getCookie(cname) {
+ Player.prototype.getCookie = function (cname) {
    var name = cname + "=";
    var decodedCookie = decodeURIComponent(document.cookie);
    var ca = decodedCookie.split(';');
@@ -41,9 +41,9 @@ Player.prototype.setCookie = function setCookie() {
    return "";
  }
  
- function checkCookie() {
+Player.prototype.checkCookie = function() {
 
-   var user=getCookie("username");
+   var user=getCookie(this.getNickName());
    if (user != "") {
      alert("Welcome again " + user);
    } else {
