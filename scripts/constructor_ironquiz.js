@@ -13,7 +13,7 @@ var Quiz = function (name) {
 
 
 const p = new Player();
-const r = new Ranking()
+const r = new Ranking(this.getNickName())
 Quiz.prototype.checkResponse = function (filter) {
 
     this.questions.forEach(element => {
