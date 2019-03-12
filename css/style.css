@@ -22,7 +22,7 @@
     display: inline-block;
 }
 
-@media screen and (min-width: 90px) and (max-width: 500px) {
+@media screen and (min-width: 90px) and (max-width: 740px) {
     .container-logo .logo-game{
 
         height: 200px;
