@@ -5,18 +5,19 @@ var questions = [
 
         options: [
             {
-                letterOption: 'A',
+            
                 titleOpitons: 'Pedrão',
-                responseOptions: true,
+                responseOptions: true
             },
             {
-                letterOption: 'B',
-                titleOpitons: 'Josafá',
+               
+                titleOpitons: 'Josafá'
             },
             {
-                letterOption: 'C',
-                titleOpitons: 'Fabiano',
-            }
+               
+                titleOpitons: 'Fabiano'
+            },
+            
         ],
         statusQuestion: true
     },
@@ -25,17 +26,35 @@ var questions = [
 
         options: [
             {
-                letterOption: 'A',
                 titleOpitons: 'Namorada',
-                responseOptions: true,
+                responseOptions: true
             },
             {
-                letterOption: 'B',
-                titleOpitons: 'Noiva',
+               
+                titleOpitons: 'Noiva'
             },
             {
-                letterOption: 'C',
-                titleOpitons: 'Esposa',
+               
+                titleOpitons: 'Esposa'
+            }
+        ],
+        statusQuestion: true
+
+    },{
+        title: "Quem é Wilkor?",
+
+        options: [
+            {
+                titleOpitons: 'Marido',
+                responseOptions: true
+            },
+            {
+               
+                titleOpitons: 'Noiva'
+            },
+            {
+               
+                titleOpitons: 'Esposa'
             }
         ],
         statusQuestion: true

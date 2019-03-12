@@ -1,27 +1,54 @@
-var Quiz = function () {
+var Quiz = function (name) {
 
     this.questions = questions;
     this.countResponseTrue = 0;
     this.newListQuestion = [];
+    this.getNickName = function(){
 
+        var p = new Player()
 
-
+        return p.getNickName();
+    }
 };
 
-Quiz.prototype.checkResponse = function (quest) {
+Quiz.prototype.checkResponse = function (filter) {
 
+    this.questions.forEach(element => {
 
-    quest.filter((element) => {
+        if (this.questions.indexOf(element) == 0) {
 
-        if (element.resposeOptions) {
+            element.options.forEach(items => {
 
-            this.countResponseTrue += 10
+                if (items.titleOpitons == filter) {
 
-        } else {
+                    if (items.responseOptions) {
 
-        //tratar quando não tiver um responseOption
+                        element.statusQuestion = false
+                        this.countResponseTrue += 10;
+
+                        database.countResponseTrue = this.countResponseTrue;
+                    
+
+                        this.questions.shift()
+                        this.renderQuestion()
+                    } else {
+
+                       console.log(JSON.stringify(database))
+
+                        document.getElementById("ranking").click();
+                    }
+                }
+
+            });
+
         }
+
+
+
+
     })
+
+
 
 
 }
@@ -53,4 +80,42 @@ Quiz.prototype.finishGame = function () {
 
 }
 
+Quiz.prototype.renderQuestion = function () {
+
+
+    var str = '';
+    var countOptions = 0;
+
+
+
+
+    this.questions.forEach(element => {
+
+        if (this.questions.indexOf(element) == 0 && element.statusQuestion == true) {
+
+            element.options.forEach(items => {
+
+                document.getElementById("title-question").innerText = element.title;
+                countOptions++
+                str += '<li> <div class="form-check">';
+                str += `<input class="form-check-input" type="radio" name="radiosOptions" id="radOp${countOptions}" value="${items.titleOpitons}">`;
+                str += items.titleOpitons + '</li>';
+
+            });
+
+        }
+
+
+
+
+    })
+
+    document.getElementById('list-options').innerHTML = str;
+
+
+
+
+
+
+}
 
