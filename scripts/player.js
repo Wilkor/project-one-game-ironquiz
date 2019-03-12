@@ -26,10 +26,10 @@ Player.prototype.setCookie = function setCookie() {
 
  }
  
- Player.prototype.getCookie = function (name) {
+ Player.prototype.getCookie = function () {
 
 
-   var name = name;
+   var name = "ironquiz";
    var decodedCookie = decodeURIComponent(document.cookie);
    var ca = decodedCookie.split(';');
    for(var i = 0; i < ca.length; i++) {

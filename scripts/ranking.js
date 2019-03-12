@@ -1,7 +1,7 @@
-var Ranking = function (name){
+var Ranking = function (){
 
     this.ranking = []
-    this.name = name;
+
 
 }
 
@@ -9,7 +9,7 @@ const P = new Player();
 
 Ranking.prototype.showPlayes = function(){
 
-    this.ranking.push(p.getCookie(this.name),database.countResponseTrue)
+    this.ranking.push(p.getCookie(),database.countResponseTrue)
 
 document.getElementById("body-ranking-loose").innerHTML = this.ranking
 
