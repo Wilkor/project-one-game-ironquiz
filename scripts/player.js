@@ -26,10 +26,10 @@ Player.prototype.setCookie = function setCookie() {
 
  }
  
- Player.prototype.getCookie = function () {
+ Player.prototype.getCookie = function (name) {
 
 
-   var name = this.getNickName();
+   var name = name;
    var decodedCookie = decodeURIComponent(document.cookie);
    var ca = decodedCookie.split(';');
    for(var i = 0; i < ca.length; i++) {
