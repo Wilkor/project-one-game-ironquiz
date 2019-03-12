@@ -21,7 +21,7 @@ Player.prototype.setCookie = function setCookie() {
    var d = new Date();
    d.setTime(d.getTime() + (30*24*60*60*1000));
    var expires = "expires=" + d.toGMTString();
-   document.cookie = this.getNickName() + "=" + this.getNickName() + ";" + expires + ";path=/";
+   document.cookie = "ironquiz" + "=" + this.getNickName() + ";" + expires + ";path=/";
    window.location.href = "game.html"
 
  }
@@ -29,7 +29,7 @@ Player.prototype.setCookie = function setCookie() {
  Player.prototype.getCookie = function () {
 
 
-   var name = "ironquiz";
+   var name = "ironquiz=";
    var decodedCookie = decodeURIComponent(document.cookie);
    var ca = decodedCookie.split(';');
    for(var i = 0; i < ca.length; i++) {
