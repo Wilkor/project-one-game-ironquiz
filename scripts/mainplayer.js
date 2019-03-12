@@ -1,5 +1,6 @@
 
 var p = new Player();
+
 var btnGamePlayer = document.getElementById('gamePlayer');
 var btnPlayerFunction = function () {
 var nickname = document.getElementById("nickname").value
