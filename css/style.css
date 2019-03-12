@@ -22,10 +22,10 @@
     display: inline-block;
 }
 
-@media screen and (min-width: 90px) and (max-width: 400px) {
+@media screen and (min-width: 90px) and (max-width: 500px) {
     .container-logo .logo-game{
 
-        height: 150px;
+        height: 200px;
         width: 360px;
         background-color: #bbb;
         border-radius: 50%;
@@ -34,7 +34,6 @@
     
 
 }
-
 
 .container-buttons{
 
