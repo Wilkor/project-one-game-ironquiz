@@ -1,7 +1,7 @@
 .container-master{
 
      margin-left: 25%;
-     width: 50%;
+     width:50%;
 
 }
 
@@ -15,12 +15,26 @@
 
 .container-logo .logo-game{
 
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
 }
+
+@media screen and (min-width: 90px) and (max-width: 400px) {
+    .container-logo .logo-game{
+
+        height: 150px;
+        width: 360px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    
+
+}
+
 
 .container-buttons{
 
