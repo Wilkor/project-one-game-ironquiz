@@ -17,23 +17,26 @@
 
     height: 300px;
     width: 300px;
-    background-color: #bbb;
+    background: url('../img/iron_logo.png') 0 0 no-repeat;
+    background-size: 100%;
     border-radius: 50%;
     display: inline-block;
 }
 
 @media screen and (min-width: 90px) and (max-width: 740px) {
+    
     .container-logo .logo-game{
-
         height: 200px;
         width: 360px;
-        background-color: #bbb;
-        border-radius: 50%;
+        background: url('../img/iron_logo.png') 0 0 no-repeat;
+        background-size: 90%;
         display: inline-block;
     }
     
 
 }
+
+
 
 .container-buttons{
 
