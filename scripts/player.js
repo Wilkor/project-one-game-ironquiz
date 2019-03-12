@@ -22,6 +22,7 @@ Player.prototype.setCookie = function setCookie() {
    d.setTime(d.getTime() + (30*24*60*60*1000));
    var expires = "expires=" + d.toGMTString();
    document.cookie = "ironquiz" + "=" + this.getNickName() + ";" + expires + ";path=/";
+   window.location.href = "game.html"
 
  }
  

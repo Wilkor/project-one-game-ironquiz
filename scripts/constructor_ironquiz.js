@@ -28,8 +28,6 @@ Quiz.prototype.checkResponse = function (filter) {
 
                         element.statusQuestion = false
                         this.countResponseTrue += 10;
-
-                        database.nickname = p.getCookie();
                         database.countResponseTrue = this.countResponseTrue;
                     
 
@@ -37,7 +35,7 @@ Quiz.prototype.checkResponse = function (filter) {
                         this.renderQuestion()
                     } else {
 
-                        r.ranking.push(database)
+                        r.showPlayes()
                          
                         document.getElementById("ranking").click();
                     }

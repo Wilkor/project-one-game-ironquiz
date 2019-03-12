@@ -4,10 +4,12 @@ var Ranking = function (){
 
 }
 
-
+const P = new Player();
 
 Ranking.prototype.showPlayes = function(){
 
-document.getElementById("body-ranking-loose").innerHTML = JSON.stringify(this.ranking)
+    this.ranking.push(p.getCookie(),database.countResponseTrue)
+
+document.getElementById("body-ranking-loose").innerHTML = this.ranking
 
 }
