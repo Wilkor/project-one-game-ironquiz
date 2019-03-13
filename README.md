@@ -1,6 +1,6 @@
 # project-one-game-ironquiz
 
-## o que o jogo deve ter?
+## o que o jogo deve ter e fazer?
 
 - Permitir que o usuário cadastre um nickname;
 - Ter perguntas com no minimo 4 alternativas;
