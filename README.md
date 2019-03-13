@@ -4,7 +4,7 @@
 
 - Permitir que o usuário cadastre um nickname;
 - Ter perguntas com no minimo 4 alternativas;
-- ter um time de 10s para cada pergunta;
+- Ter um time de 10s para cada pergunta;
 - As perguntas terão niveis de dificuldades;
 - Dar opções de ajuda: "50:50, TAs e Placas";
 - Após o usuário errar a pergunta o jogo abacaba;
