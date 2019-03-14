@@ -27,7 +27,7 @@ Quiz.prototype.shuffle = function(){
 Quiz.prototype.checkConditionalElse = function(){
 
     var doc = document.getElementById('list-options').children  
-    
+
     for (let index = 0; index < doc.length; index++) {
         const element = doc[index].children;
 
@@ -106,9 +106,10 @@ Quiz.prototype.finishGame = function () {
 
 Quiz.prototype.renderQuestion = function () {
 
+
     var str = '';
     var countOptions = 0;
-    var questions = 0;
+    var questions = ["0","A","B","C","D","E","F"];
 
     this.questions.forEach(element => {
 
@@ -118,7 +119,7 @@ Quiz.prototype.renderQuestion = function () {
 
                 document.getElementById("title-question").innerText = element.title;
                 countOptions++
-                str += ` <li class="answer-tru" id="li-${countOptions}"><input type="radio" id="${countOptions}-option" onclick="validar(this,this.value)" name="selector" value="${items.titleOpitons}" ><label for="${countOptions}-option">${items.titleOpitons}</label><div class="check"><div class="inside"></div></div></li>`
+                str += `<li class="answer-tru" id="li-${countOptions}"><input type="radio" id="${countOptions}-option" onclick="validar(this,this.value)" name="selector" value="${items.titleOpitons}" ><label for="${countOptions}-option">${items.titleOpitons}</label><div class="check"><div class="inside"></div><div class="options">${questions[countOptions]}) <div></div></li>`
 
 
             });

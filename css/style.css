@@ -273,7 +273,7 @@ background: green;
 .container-master{
 
   margin-left: 25%;
-  width:50%;
+  width:100%;
 
 }
 
@@ -283,4 +283,10 @@ background: green;
  justify-content: center;
  margin-top: 80px
  
+}
+
+.options{
+
+  margin-left: -25px;
+  margin-top: 2px;
 }
