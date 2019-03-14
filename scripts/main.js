@@ -20,5 +20,40 @@ var btnCheckFunction = function () {
 
 };
 
-btnCheck.addEventListener('click', btnCheckFunction, false);
+//btnCheck.addEventListener('click', btnCheckFunction, false);
 
+function validar(event,text){
+
+  var t = event.parentNode;
+
+  
+ console.log(t)
+  if(quiz.checkResponse(text,t)){
+
+  
+    t.setAttribute("class", "answer-true");
+
+    setTimeout(function(){
+ 
+      quiz.renderQuestion()
+
+    },2000)
+
+  }else{
+
+   t.setAttribute("class","answer-false")
+   quiz.checkConditionalElse()  
+  }
+    
+  
+
+
+}
+// var btnDiv = document.querySelectorAll(".button-div")
+
+// btnDiv.forEach(function(btnDiv) {
+//   btnDiv.addEventListener('click', function () {
+//     quiz.checkResponse(btnDiv.textContent)
+//     console.log(btnDiv);
+//   });
+// });
