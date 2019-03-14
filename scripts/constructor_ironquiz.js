@@ -16,11 +16,18 @@ var Quiz = function (name) {
 const p = new Player();
 const r = new Ranking()
 
+
+Quiz.prototype.shuffle = function(){
+
+    this.questions.sort(function () {
+        return  .5 - Math.random() ;
+      });
+}
+
 Quiz.prototype.checkConditionalElse = function(){
 
     var doc = document.getElementById('list-options').children  
     
- 
     for (let index = 0; index < doc.length; index++) {
         const element = doc[index].children;
 
@@ -40,6 +47,7 @@ Quiz.prototype.checkConditionalElse = function(){
 }
 
 Quiz.prototype.checkResponse = function (filter, event) {
+
     var result = true
     var arOp = []
     this.questions.forEach(element => {

@@ -91,15 +91,15 @@ ul li .check::before {
 }
 
 input[type=radio]:checked ~ .check {
-  border: 5px solid #32c3ff;
+  border: 5px solid white;
 }
 
 input[type=radio]:checked ~ .check::before{
-  background: #32c3ff;
+  background: white;
 }
 
 input[type=radio]:checked ~ label{
-  color: #32c3ff;
+  color: white;
 }
 
 .signature {

@@ -1,7 +1,7 @@
 var questions = [
 
     {
-        title: "Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe.",
+        title: "0 Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe.",
 
         options: [
             {
@@ -24,7 +24,7 @@ var questions = [
         
     },
     {
-        title: " Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe.Quem é julitte?",
+        title: "1 Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe.Quem é julitte?",
 
         options: [
             {
@@ -44,7 +44,7 @@ var questions = [
       
 
     },{
-        title: " Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe. Quem é Wilkor?",
+        title: " 2 Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe. Quem é Wilkor?",
 
         options: [
             {
@@ -64,7 +64,7 @@ var questions = [
       
     }
     ,{
-        title: " Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe. Quem é Wilkor?",
+        title: " 3 Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe. Quem é Wilkor?",
 
         options: [
             {
@@ -84,7 +84,7 @@ var questions = [
       
     }
     ,{
-        title: "Quem é Wilkor?",
+        title: " 4 Quem é Wilkor?",
 
         options: [
             {

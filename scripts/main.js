@@ -1,4 +1,5 @@
 var quiz = new Quiz();
+quiz.shuffle()
 quiz.renderQuestion();
 
 function disableOtherOption(idField) {
