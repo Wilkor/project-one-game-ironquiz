@@ -3,6 +3,7 @@ var Quiz = function (name) {
     this.questions = questions;
     this.countResponseTrue = 0;
     this.newListQuestion = [];
+    this.idField='',
     this.getNickName = function () {
 
         var p = new Player()
@@ -19,17 +20,16 @@ Quiz.prototype.checkConditionalElse = function(){
 
     var doc = document.getElementById('list-options').children  
     
-    console.log(doc.length)
+ 
     for (let index = 0; index < doc.length; index++) {
         const element = doc[index].children;
 
-          console.log()
+
 
             if (this.checkResponse(element[index].parentNode.textContent)) {
 
                 var t = element[index].parentNode
 
-                console.log(t)
                 t.setAttribute("class", "answer-true")
                 
                 return false
@@ -64,7 +64,7 @@ Quiz.prototype.checkResponse = function (filter, event) {
                         result = true
                     } else {
 
-                        console.log(event)
+                    
 
              
                         
@@ -130,7 +130,7 @@ Quiz.prototype.renderQuestion = function () {
                 //  str += `<input class="form-check-input" type="radio" name="radiosOptions" id="radOp${countOptions}" value="${items.titleOpitons}">`;
                 //  str += items.titleOpitons + '</li>';
                 // str+= `<li><div class="button-div" onclick="" id="button-${countOptions}"><input class="checkbox-group__checkbox" type="radio" value="1" id="bananas" name="fruits">${items.titleOpitons}</div></li><br>`
-                str += ` <li class="answer-tru"><input type="radio" id="${countOptions}-option" onclick="validar(this,this.value)" name="selector" value="${items.titleOpitons}" ><label for="${countOptions}-option">${items.titleOpitons}</label><div class="check"><div class="inside"></div></div></li>`
+                str += ` <li class="answer-tru" id="li-${countOptions}"><input type="radio" id="${countOptions}-option" onclick="validar(this,this.value)" name="selector" value="${items.titleOpitons}" ><label for="${countOptions}-option">${items.titleOpitons}</label><div class="check"><div class="inside"></div></div></li>`
 
 
             });
