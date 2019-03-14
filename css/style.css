@@ -91,15 +91,15 @@ ul li .check::before {
 }
 
 input[type=radio]:checked ~ .check {
-  border: 5px solid #32c3ff;
+  border: 5px solid white;
 }
 
 input[type=radio]:checked ~ .check::before{
-  background: #32c3ff;
+  background: white;
 }
 
 input[type=radio]:checked ~ label{
-  color: #32c3ff;
+  color: white;
 }
 
 .signature {
@@ -273,7 +273,7 @@ background: green;
 .container-master{
 
   margin-left: 25%;
-  width:50%;
+  width:100%;
 
 }
 
@@ -283,4 +283,10 @@ background: green;
  justify-content: center;
  margin-top: 80px
  
+}
+
+.options{
+
+  margin-left: -25px;
+  margin-top: 2px;
 }
