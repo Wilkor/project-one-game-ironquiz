@@ -25,17 +25,13 @@ Quiz.prototype.checkConditionalElse = function(){
         const element = doc[index].children;
 
 
-
             if (this.checkResponse(element[index].parentNode.textContent)) {
 
                 var t = element[index].parentNode
 
-                t.setAttribute("class", "answer-true")
+                    t.setAttribute("class", "answer-true")
                 
                 return false
-            
-
-            
         }
 
     }
@@ -45,10 +41,8 @@ Quiz.prototype.checkConditionalElse = function(){
 
 Quiz.prototype.checkResponse = function (filter, event) {
     var result = true
-    var arrayOption = []
     var arOp = []
     this.questions.forEach(element => {
-
 
         if (this.questions.indexOf(element) == 0) {
 
@@ -60,21 +54,11 @@ Quiz.prototype.checkResponse = function (filter, event) {
                         this.countResponseTrue += 10;
                         database.countResponseTrue = this.countResponseTrue;
                         this.questions.shift()
-                        // this.renderQuestion();
                         result = true
                     } else {
 
-                    
-
-             
-                        
-                        //event.setAttribute("class", "answer-false")
-     
-
-                 
                         result = false
-                        //r.showPlayes()        
-                        // document.getElementById("ranking").click();
+                       
                     }
                 }
             });
@@ -126,10 +110,6 @@ Quiz.prototype.renderQuestion = function () {
 
                 document.getElementById("title-question").innerText = element.title;
                 countOptions++
-                //  str += '<li> <div class="form-check">';
-                //  str += `<input class="form-check-input" type="radio" name="radiosOptions" id="radOp${countOptions}" value="${items.titleOpitons}">`;
-                //  str += items.titleOpitons + '</li>';
-                // str+= `<li><div class="button-div" onclick="" id="button-${countOptions}"><input class="checkbox-group__checkbox" type="radio" value="1" id="bananas" name="fruits">${items.titleOpitons}</div></li><br>`
                 str += ` <li class="answer-tru" id="li-${countOptions}"><input type="radio" id="${countOptions}-option" onclick="validar(this,this.value)" name="selector" value="${items.titleOpitons}" ><label for="${countOptions}-option">${items.titleOpitons}</label><div class="check"><div class="inside"></div></div></li>`
 
 
