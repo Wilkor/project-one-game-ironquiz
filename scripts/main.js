@@ -1,6 +1,6 @@
 var quiz = new Quiz();
 quiz.shuffle()
-quiz.shuffleOption()
+//quiz.shuffleOption()
 quiz.renderQuestion();
 
 setIntervalGame();
