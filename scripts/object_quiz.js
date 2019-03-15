@@ -7,7 +7,7 @@ var questions = [
             {
             
                 titleOpitons: 'Pedrão',
-                responseOptions: true
+                
             },
             {
                
@@ -15,7 +15,8 @@ var questions = [
             },
             {
                
-                titleOpitons: 'Fabiano'
+                titleOpitons: 'Fabiano',
+                responseOptions: true
             },
             {
                
@@ -25,7 +26,7 @@ var questions = [
             
         ],
         statusQuestion: true,
-        
+
      
         
     },
@@ -72,7 +73,7 @@ var questions = [
             },
             {
                
-                titleOpitons: 'Esposa'
+                titleOpitons: 'Esposa2'
             }
         ],
         
@@ -93,7 +94,7 @@ var questions = [
             },
             {
                
-                titleOpitons: 'Esposa'
+                titleOpitons: 'Esposa2'
             },
             {
                
@@ -118,7 +119,7 @@ var questions = [
             },
             {
                
-                titleOpitons: 'Esposa'
+                titleOpitons: 'Esposa2'
             },
             {
                
@@ -142,7 +143,7 @@ var questions = [
             },
             {
                
-                titleOpitons: 'Esposa'
+                titleOpitons: 'Esposa2'
             },
             {
                

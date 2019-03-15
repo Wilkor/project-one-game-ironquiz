@@ -3,10 +3,10 @@ var Quiz = function (name) {
     this.questions = questions;
     this.countResponseTrue = 0;
     this.newListQuestion = [];
-    this.idField='',
-    this.milliseconds=0;
-    this.second=0;
-    this.currentTime=0;
+    this.idField = '',
+        this.milliseconds = 0;
+    this.second = 0;
+    this.currentTime = 0;
     this.intervalId = 0;
 
 
@@ -26,26 +26,32 @@ var secUni = document.getElementById("secUni");
 var milDec = document.getElementById("milDec");
 var milUni = document.getElementById("milUni");
 
-Quiz.prototype.shuffle = function(){
+Quiz.prototype.shuffle = function () {
 
     this.questions.sort(function () {
-        return  .5 - Math.random() ;
-      });
+        return .5 - Math.random();
+    });
 }
 
 
-Quiz.prototype.shuffleOption = function(){
-
-    this.questions.forEach((element)=>{
-
-        element.options.sort(function () {
-            return  .5 - Math.random() ;
-          });
+Quiz.prototype.shuffleOption = function (element) {
 
 
-    })
-    
- 
+   // console.log(element)
+
+    // this.questions.forEach((element)=>{
+
+    //     element.options.sort( ()=> {
+    //      // return  .5 - Math.random() ;
+
+    //     console.log( element.options)
+
+    //       });
+
+
+    // })
+
+
 }
 
 
@@ -54,7 +60,7 @@ Quiz.prototype.resetClick = function () {
 
 
     clearInterval(this.intervalId);
-   
+
     this.second = 0;
 
     secDec.innerHTML = "0"
@@ -134,32 +140,38 @@ Quiz.prototype.twoDigitsNumber = function (number) {
 };
 
 
-Quiz.prototype.checkConditionalElse = function(){
+Quiz.prototype.checkConditionalElse = function () {
 
-    var doc = document.getElementById('list-options').children  
+    var doc = document.getElementById('list-options').children
 
     for (let index = 0; index < doc.length; index++) {
         const element = doc[index].children;
 
+        var response = element[index].parentNode.textContent.substr(0,(element[index].parentNode.textContent.length-3))
 
-            if (this.checkResponse(element[index].parentNode.textContent)) {
 
-                var t = element[index].parentNode
+        console.log(response)
+      
+        if (this.checkResponse(response)) {
 
-                    t.setAttribute("class", "answer-true")
-                
-                return false
+            var t = element[index].parentNode
+
+            t.setAttribute("class", "answer-true")
+
+            return false
         }
 
     }
 
-    
+
 }
 
 Quiz.prototype.checkResponse = function (filter, event) {
 
     var result = true
     var arOp = []
+
+   
     this.questions.forEach(element => {
 
         if (this.questions.indexOf(element) == 0) {
@@ -176,11 +188,11 @@ Quiz.prototype.checkResponse = function (filter, event) {
                     } else {
 
                         result = false
-                       
+
                     }
                 }
             });
-        }  
+        }
     })
 
     return result
@@ -219,20 +231,27 @@ Quiz.prototype.renderQuestion = function () {
 
     var str = '';
     var countOptions = 0;
-    var questions = ["0","A","B","C","D","E","F"];
+    var questions = ["0", "A", "B", "C", "D", "E", "F"];
 
     this.questions.forEach(element => {
 
         if (this.questions.indexOf(element) == 0 && element.statusQuestion == true) {
 
-            element.options.forEach(items => {
 
+        //   var shuffleOpt=   element.options.sort(()=>{
+
+        //        return .5 - Math.random();
+        //   })
+
+   
+        //   console.log(shuffleOpt)
+          element.options.forEach(items => {
                 document.getElementById("title-question").innerText = element.title;
                 countOptions++
                 str += `<li class="answer-tru" id="li-${countOptions}"><input type="radio" id="${countOptions}-option" onclick="validar(this,this.value)" name="selector" value="${items.titleOpitons}" ><label for="${countOptions}-option">${items.titleOpitons}</label><div class="check"><div class="inside"></div><div class="options">${questions[countOptions]}) <div></div></li>`
 
 
-            });
+            })
 
         }
 

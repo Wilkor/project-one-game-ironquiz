@@ -1,6 +1,6 @@
 var quiz = new Quiz();
 quiz.shuffle()
-//quiz.shuffleOption()
+quiz.shuffleOption()
 quiz.renderQuestion();
 
 setIntervalGame();
@@ -15,7 +15,6 @@ function setIntervalGame() {
     if (quiz.second >= 15) {
 
     
-
      quiz.stopClick(quiz.intervalId)
 
      setTimeout(() => {
