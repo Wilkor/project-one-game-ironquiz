@@ -17,9 +17,15 @@ var questions = [
                
                 titleOpitons: 'Fabiano'
             },
+            {
+               
+                titleOpitons: 'Esposa'
+            }
+    
             
         ],
         statusQuestion: true,
+        
      
         
     },
@@ -38,8 +44,13 @@ var questions = [
             {
                
                 titleOpitons: 'Esposa'
+            },
+            {
+               
+                titleOpitons: 'Esposa'
             }
         ],
+        
         statusQuestion: true,
       
 
@@ -58,8 +69,13 @@ var questions = [
             {
                
                 titleOpitons: 'Esposa'
+            },
+            {
+               
+                titleOpitons: 'Esposa'
             }
         ],
+        
         statusQuestion: true,
       
     }
@@ -78,8 +94,13 @@ var questions = [
             {
                
                 titleOpitons: 'Esposa'
+            },
+            {
+               
+                titleOpitons: 'Esposa'
             }
         ],
+  
         statusQuestion: true,
       
     }
@@ -98,10 +119,41 @@ var questions = [
             {
                
                 titleOpitons: 'Esposa'
+            },
+            {
+               
+                titleOpitons: 'Esposa'
             }
         ],
+    
         statusQuestion: true,
       
+    },{
+        title: "1 Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe.Quem é julitte?",
+
+        options: [
+            {
+                titleOpitons: 'Namorada',
+                responseOptions: true
+            },
+            {
+               
+                titleOpitons: 'Noiva'
+            },
+            {
+               
+                titleOpitons: 'Esposa'
+            },
+            {
+               
+                titleOpitons: 'Esposa'
+            }
+        ],
+            
+      
+        statusQuestion: true,
+      
+
     }
 
 ]

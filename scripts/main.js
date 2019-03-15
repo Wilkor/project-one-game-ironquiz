@@ -1,6 +1,39 @@
 var quiz = new Quiz();
 quiz.shuffle()
+quiz.shuffleOption()
 quiz.renderQuestion();
+
+setIntervalGame();
+
+function setIntervalGame() {
+
+  quiz.intervalId = setInterval(() => {
+
+    quiz.setMilliseconds()
+    quiz.setSeconds()
+
+    if (quiz.second >= 15) {
+
+    
+
+     quiz.stopClick(quiz.intervalId)
+
+     setTimeout(() => {
+
+       window.location.href = "index.html"
+
+     }, 700)
+
+    }
+
+   
+
+
+
+  }, 10)
+}
+
+
 
 function disableOtherOption(idField) {
 
@@ -31,16 +64,30 @@ function validar(event, text) {
 
   if (quiz.checkResponse(text, t)) {
     disableOtherOption(quiz.idFiel)
-    
+    quiz.stopClick(this.intervalId)
     setTimeout(function () {
+
       quiz.renderQuestion()
+
+      quiz.resetClick()
+
+      setIntervalGame();
     }, 2000)
 
   } else {
 
+    quiz.stopClick(quiz.intervalId)
+
     disableOtherOption(quiz.idFiel)
     t.setAttribute("class", "answer-false")
     quiz.checkConditionalElse()
+
+
+
+    setTimeout(() => {
+
+      window.location.href = "index.html";
+    }, 2000)
 
   }
 

@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 body, html{
   height: 100%;
-
+  background: #222222;
 	font-family: 'Lato', sans-serif;
 }
 
@@ -27,13 +27,14 @@ h2 {
 }
 
 ul li{
-  color: #333;
+  color: #AAAAAA;
   display: block;
   position: relative;
   float: left;
-  width: 100%;
+  width: 50%;
   height: 100px;
-	border-bottom: 1px solid #333;
+  border-bottom: 1px solid #333;
+  
 }
 
 ul li input[type=radio]{
@@ -45,7 +46,7 @@ ul li label{
   display: block;
   position: relative;
   font-weight: 300;
-  font-size: 1.10em;
+  font-size: 1.08em;
   padding: 25px 25px 25px 80px;
   margin: 10px auto;
   height: 30px;
@@ -55,17 +56,17 @@ ul li label{
 }
 
 ul li:hover label{
-	color: #333;
+	color: #FFFFFF;
 }
 
 ul li .check{
   display: block;
   position: absolute;
-  border: 5px solid #333;
+  border: 2px solid #AAAAAA;
   border-radius: 100%;
-  height: 20px;
-  width: 20px;
-  top: 30px;
+  height: 17px;
+  width: 17px;
+  top: 34px;
   left: 20px;
 	z-index: 5;
 	transition: border .25s linear;
@@ -73,7 +74,7 @@ ul li .check{
 }
 
 ul li:hover .check {
-  border: 5px solid #333;
+  border: 5px solid #FFFFFF;
 }
 
 ul li .check::before {
@@ -81,8 +82,8 @@ ul li .check::before {
   position: absolute;
 	content: '';
   border-radius: 100%;
-  height: 10px;
-  width: 10px;
+  height: 7px;
+  width: 7px;
   top: 5px;
 	left: 5px;
   margin: auto;
@@ -91,15 +92,15 @@ ul li .check::before {
 }
 
 input[type=radio]:checked ~ .check {
-  border: 5px solid white;
+  border: 4px solid #0DFF92;
 }
 
 input[type=radio]:checked ~ .check::before{
-  background: white;
+  background: #0DFF92;
 }
 
 input[type=radio]:checked ~ label{
-  color: white;
+  color: #0DFF92;
 }
 
 .signature {
@@ -184,20 +185,24 @@ by the way it is so weird when you look at your code a couple of years after you
 	color: #232323;
 	font-weight: bold;
 }
-
 .container-center-question{
-margin-top: 100px;
+ 
  display: flex;
  justify-content: center;
+ justify-items: center;
+ margin-top: 20px;
+ 
 
 
 }
 
 .container-center-options{
 
-    margin-top: 30px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
+    
+
    
    
    }
@@ -206,10 +211,9 @@ margin-top: 100px;
 
     display: flex;
     justify-content: center;
-    border:1px solid #333;
     border-radius: 5px 10px 20px 30px;
     padding: 5px 10px 20px 30px;
-    width: 50%;
+    width: 100%;
     word-break: break-all
 
 }
@@ -241,19 +245,17 @@ background: green;
 
   height: 300px;
   width: 300px;
-  background: url('../img/iron_logo.png') 0 0 no-repeat;
-  background-size: 100%;
-  border-radius: 50%;
+  background: url('../img/logo-iron2.png') 0 0 no-repeat;
+  background-size: 90%;
   display: inline-block;
 }
 
 @media screen and (min-width: 90px) and (max-width: 740px) {
   
   .container-logo .logo-game{
-      height: 200px;
-      width: 360px;
-      background: url('../img/iron_logo.png') 0 0 no-repeat;
-      background-size: 90%;
+ 
+      background: url('../img/logo-iron2.png') 0 0 no-repeat;
+      background-size: 100%;
       display: inline-block;
   }
   
@@ -289,4 +291,152 @@ background: green;
 
   margin-left: -25px;
   margin-top: 2px;
+}
+
+.btnStart{ 
+  display: flex;
+  justify-content: center;
+  color:white;
+  width: 200px;
+  height: 70px;
+  background: #32c5ff;
+  border-radius: 5px 5px 5px 5px
+}
+
+.btnAbout{
+  
+  display: flex;
+  justify-content: center;
+  color:white;
+  width: 200px;
+  height: 70px;
+  background: #32c5ff;
+  border-radius: 5px 5px 5px 5px;
+
+}
+
+.head{
+
+  background: #32c5ff;
+  height: 300px;
+
+}
+
+.section-logo{
+
+
+
+  
+
+}
+.container-master-game{
+
+   background: white;
+   width: 50%;
+   height: 170px;
+   margin-left:25%;
+   border-radius: 5px 5px 5px 5px;
+   margin-bottom: 20%;
+  
+
+}
+
+#list-options{
+  margin-top:120px;
+  margin-left: -40px;
+}
+
+
+#clock {
+  border: 2px solid #000;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 250px;
+  margin: 0 auto;
+  padding: 18px 0;
+  width: 245px;
+}
+
+#sphere {
+
+  border: 2px solid #000;
+  border-radius: 20px;
+  box-sizing: border-box;
+  font-family: "Digi";
+  font-size: 50px;
+  height: 88px;
+  margin-left: 333px;
+  padding: 0px 0;
+  position: relative;
+  text-align: center;
+  width: 180px;
+  background: #AC1D3F
+}
+
+#splits-container {
+  
+  font-size: 20px;
+  font-weight: 100;
+  position: absolute;
+  left: 50px;
+}
+
+#splits-container li {
+  padding-bottom: 5px;
+  text-align: right;
+}
+
+#milliseconds {
+  font-size: 36px;
+  margin-top: -15px;
+  position: absolute;
+  right: 20px;
+}
+
+.leash {
+  background: rgb(204, 84, 87);
+  border: 2px solid rgb(134, 59, 61);
+  height: 50px;
+  margin: 0 auto;
+  width: 120px;
+}
+
+.leash-top {
+  border-bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.leash-bottom {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: 0;
+  height: 270px;
+  padding-top: 50px;
+}
+
+.hole {
+  background: #fff;
+  border: 2px solid rgb(134, 59, 61);
+  border-radius: 100%;
+  height: 20px;
+  margin: 0 auto 50px;
+  width: 20px;
+}
+
+.number {
+  display: inline-block;
+  width:19px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 100%;
+  bottom: 10px;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  outline: 0;
+  position: absolute;
+  width: 50px;
 }

@@ -4,6 +4,12 @@ var Quiz = function (name) {
     this.countResponseTrue = 0;
     this.newListQuestion = [];
     this.idField='',
+    this.milliseconds=0;
+    this.second=0;
+    this.currentTime=0;
+    this.intervalId = 0;
+
+
     this.getNickName = function () {
 
         var p = new Player()
@@ -12,10 +18,13 @@ var Quiz = function (name) {
     }
 };
 
-
 const p = new Player();
 const r = new Ranking()
 
+var secDec = document.getElementById("secDec");
+var secUni = document.getElementById("secUni");
+var milDec = document.getElementById("milDec");
+var milUni = document.getElementById("milUni");
 
 Quiz.prototype.shuffle = function(){
 
@@ -23,6 +32,107 @@ Quiz.prototype.shuffle = function(){
         return  .5 - Math.random() ;
       });
 }
+
+
+Quiz.prototype.shuffleOption = function(){
+
+    this.questions.forEach((element)=>{
+
+        element.options.sort(function () {
+            return  .5 - Math.random() ;
+          });
+
+
+    })
+    
+ 
+}
+
+
+
+Quiz.prototype.resetClick = function () {
+
+
+    clearInterval(this.intervalId);
+   
+    this.second = 0;
+
+    secDec.innerHTML = "0"
+    secUni.innerHTML = "0"
+    milDec.innerHTML = "0"
+    milUni.innerHTML = "0"
+
+};
+
+Quiz.prototype.stopClick = function () {
+
+    clearInterval(this.intervalId)
+};
+
+
+Quiz.prototype.setMilliseconds = function () {
+
+    if (this.milliseconds < 99) {
+
+        this.milliseconds++;
+
+        if (this.milliseconds >= 10) {
+
+            milDec.style.display = "none"
+
+        }
+
+        milUni.innerHTML = this.milliseconds;
+    }
+
+    if (this.milliseconds == 99) {
+        this.milliseconds = -1;
+    }
+
+
+
+    return this.currentTime = this.milliseconds
+
+};
+
+
+Quiz.prototype.setSeconds = function () {
+
+
+    if (this.milliseconds == 0) {
+        this.second++;
+
+
+        if (this.second >= 10) {
+
+            var splitS = this.twoDigitsNumber(this.second)
+            secDec.innerHTML = splitS[0]
+            secUni.innerHTML = splitS[1]
+        } else {
+            secDec.innerHTML = "0"
+            secUni.innerHTML = this.second;
+        }
+
+    }
+
+
+    if (this.second == 59) {
+
+        this.second = -1;
+    }
+
+    return this.currentTime = this.second
+
+};
+
+Quiz.prototype.twoDigitsNumber = function (number) {
+
+    var newNumberArray = '' + number < 10 ? "0" + number : "" + number
+
+    return newNumberArray
+
+};
+
 
 Quiz.prototype.checkConditionalElse = function(){
 
