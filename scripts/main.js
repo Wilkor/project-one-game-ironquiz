@@ -66,7 +66,15 @@ function validar(event, text) {
 
   if (quiz.checkResponse(text, t)) {
     disableOtherOption(quiz.idFiel)
+
+    setTimeout(()=>{
+      p.setCookie(quiz.countResponseTrue,'Player 1')
+
+    },1000)
     quiz.stopClick(this.intervalId)
+
+  
+
     setTimeout(function () {
 
       quiz.renderQuestion()
