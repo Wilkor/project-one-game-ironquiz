@@ -182,7 +182,7 @@ Quiz.prototype.checkResponse = function (filter, event) {
                     if (items.responseOptions) {
                         element.statusQuestion = false
                         this.countResponseTrue += 10;
-                      //  p.setCookie(this.countResponseTrue,'Player 1')
+                      
                         this.questions.shift()
                         result = true
                     } else {
