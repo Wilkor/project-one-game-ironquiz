@@ -6,7 +6,9 @@ var Ranking = function (){
 }
 
 
-Ranking.prototype.showPlayes = function(){
+
+
+Ranking.prototype.showPlayesGameOver = function(){
 
 
     var p = new Player()

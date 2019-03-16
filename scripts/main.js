@@ -68,17 +68,15 @@ function validar(event, text) {
     disableOtherOption(quiz.idFiel)
 
     setTimeout(()=>{
-      p.setCookie(quiz.countResponseTrue,'Player 1')
+     // p.setCookie(quiz.countResponseTrue,'Player 1')
 
     },1000)
+
+
     quiz.stopClick(this.intervalId)
 
-  
-
     setTimeout(function () {
-
       quiz.renderQuestion()
-
       quiz.resetClick()
 
       setIntervalGame();
@@ -87,11 +85,9 @@ function validar(event, text) {
   } else {
 
     quiz.stopClick(quiz.intervalId)
-
     disableOtherOption(quiz.idFiel)
     t.setAttribute("class", "answer-false")
     quiz.checkConditionalElse()
-
     setTimeout(() => {
       window.location.href = "gameover.html";
     }, 1000)
