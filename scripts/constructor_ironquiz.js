@@ -25,7 +25,7 @@ var secDec = document.getElementById("secDec");
 var secUni = document.getElementById("secUni");
 var milDec = document.getElementById("milDec");
 var milUni = document.getElementById("milUni");
-
+var pointsGame= document.getElementById("pointsgame")
 Quiz.prototype.shuffle = function () {
 
     this.questions.sort(function () {
@@ -152,7 +152,7 @@ Quiz.prototype.checkConditionalElse = function () {
 
         console.log(response)
       
-        if (this.checkResponse(response)) {
+        if (this.checkResponse(response,'check-true')) {
 
             var t = element[index].parentNode
 
@@ -181,8 +181,9 @@ Quiz.prototype.checkResponse = function (filter, event) {
                 if (items.titleOpitons == filter) {
                     if (items.responseOptions) {
                         element.statusQuestion = false
-                        this.countResponseTrue += 10;
-                      
+                         
+                        database.countResponseTrue = event !='check-true' ? this.countResponseTrue += 10:this.countResponseTrue;
+                        pointsGame.innerHTML = database.countResponseTrue 
                         this.questions.shift()
                         result = true
                     } else {
@@ -237,19 +238,12 @@ Quiz.prototype.renderQuestion = function () {
 
         if (this.questions.indexOf(element) == 0 && element.statusQuestion == true) {
 
-
-        //   var shuffleOpt=   element.options.sort(()=>{
-
-        //        return .5 - Math.random();
-        //   })
-
-   
-        //   console.log(shuffleOpt)
           element.options.forEach(items => {
                 document.getElementById("title-question").innerText = element.title;
                 countOptions++
-                str += `<li class="answer-tru" id="li-${countOptions}"><input type="radio" id="${countOptions}-option" onclick="validar(this,this.value)" name="selector" value="${items.titleOpitons}" ><label for="${countOptions}-option">${items.titleOpitons}</label><div class="check"><div class="inside"></div><div class="options">${questions[countOptions]}) <div></div></li>`
-
+              
+                str += `<li class="answer-tru " id="li-${countOptions}"><input type="radio" id="${countOptions}-option" onclick="validar(this,this.value)" name="selector" value="${items.titleOpitons}" ><label for="${countOptions}-option">${items.titleOpitons}</label><div class="check"><div class="inside"></div><div class="options">${questions[countOptions]}) <div></div></li>`
+              
 
             })
 
