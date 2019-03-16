@@ -1,5 +1,5 @@
 var database = {
 
-    nickname:'',
+    nickname:'Jogador 1',
     countResponseTrue:''
 }
