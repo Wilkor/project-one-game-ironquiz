@@ -16,12 +16,12 @@ var Player = function (nickname){
 }
 
 
-Player.prototype.setCookie = function setCookie() {
+Player.prototype.setCookie = function setCookie(value,player) {
 
    var d = new Date();
    d.setTime(d.getTime() + (30*24*60*60*1000));
    var expires = "expires=" + d.toGMTString();
-   document.cookie = "ironquiz" + "=" + this.getNickName() + ";" + expires + ";path=/";
+   document.cookie = "ironquiz" + "=" + value+";"+player + ";" + expires + ";path=/";
    window.location.href = "game.html"
 
  }

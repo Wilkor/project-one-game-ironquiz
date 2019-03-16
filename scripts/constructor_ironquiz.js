@@ -4,7 +4,7 @@ var Quiz = function (name) {
     this.countResponseTrue = 0;
     this.newListQuestion = [];
     this.idField = '',
-        this.milliseconds = 0;
+    this.milliseconds = 0;
     this.second = 0;
     this.currentTime = 0;
     this.intervalId = 0;
@@ -170,7 +170,7 @@ Quiz.prototype.checkResponse = function (filter, event) {
 
     var result = true
     var arOp = []
-
+    var ranking = new Ranking();
    
     this.questions.forEach(element => {
 
@@ -182,7 +182,7 @@ Quiz.prototype.checkResponse = function (filter, event) {
                     if (items.responseOptions) {
                         element.statusQuestion = false
                         this.countResponseTrue += 10;
-                        database.countResponseTrue = this.countResponseTrue;
+                        p.setCookie(this.countResponseTrue,'Player 1')
                         this.questions.shift()
                         result = true
                     } else {

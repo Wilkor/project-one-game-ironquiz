@@ -1,4 +1,5 @@
 var quiz = new Quiz();
+var ranking = new Ranking();
 quiz.shuffle()
 quiz.shuffleOption()
 quiz.renderQuestion();
@@ -19,11 +20,13 @@ function setIntervalGame() {
 
      setTimeout(() => {
 
-       window.location.href = "index.html"
+       window.location.href = "gameover.html"
 
      }, 700)
 
     }
+
+    
 
    
 
@@ -81,16 +84,11 @@ function validar(event, text) {
     t.setAttribute("class", "answer-false")
     quiz.checkConditionalElse()
 
-
-
     setTimeout(() => {
-
-      window.location.href = "index.html";
-    }, 2000)
+      window.location.href = "gameover.html";
+    }, 1000)
 
   }
-
-
 
 
 }

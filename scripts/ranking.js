@@ -5,12 +5,20 @@ var Ranking = function (){
 
 }
 
-const P = new Player();
 
 Ranking.prototype.showPlayes = function(){
 
-    this.ranking.push(p.getCookie(),database.countResponseTrue)
 
-document.getElementById("body-ranking-loose").innerHTML = this.ranking
+    var p = new Player()
+    var responseCookie = p.getCookie()
+    var responseCookie = responseCookie.split(";");
+
+
+    document.getElementById("name").innerHTML = responseCookie[0]
+    document.getElementById("points").innerHTML = responseCookie[1] - 10
+    
+    
+
+
 
 }
