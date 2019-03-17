@@ -8,6 +8,8 @@ var Quiz = function (name) {
     this.second = 0;
     this.currentTime = 0;
     this.intervalId = 0;
+    this.status = true;
+    this.qtdHelp = 0 ;
 
 
     this.getNickName = function () {
@@ -25,7 +27,7 @@ var secDec = document.getElementById("secDec");
 var secUni = document.getElementById("secUni");
 var milDec = document.getElementById("milDec");
 var milUni = document.getElementById("milUni");
-var pointsGame= document.getElementById("pointsgame")
+var pointsGame = document.getElementById("pointsgame")
 Quiz.prototype.shuffle = function () {
 
     this.questions.sort(function () {
@@ -37,7 +39,7 @@ Quiz.prototype.shuffle = function () {
 Quiz.prototype.shuffleOption = function (element) {
 
 
-   // console.log(element)
+    // console.log(element)
 
     // this.questions.forEach((element)=>{
 
@@ -140,28 +142,49 @@ Quiz.prototype.twoDigitsNumber = function (number) {
 };
 
 
-Quiz.prototype.checkConditionalElse = function () {
+Quiz.prototype.checkConditionalElse = function (optionId) {
 
     var doc = document.getElementById('list-options').children
 
-    for (let index = 0; index < doc.length; index++) {
-        const element = doc[index].children;
-
-        var response = element[index].parentNode.textContent.substr(0,(element[index].parentNode.textContent.length-3))
+    if (optionId) {
 
 
-        console.log(response)
-      
-        if (this.checkResponse(response,'check-true')) {
 
-            var t = element[index].parentNode
+        if (optionId == "li-1") {
 
-            t.setAttribute("class", "answer-true")
+            document.getElementById("li-1").setAttribute("class", "answer-false")
+            document.getElementById("li-2").setAttribute("class", "answer-true")
 
-            return false
+        } else {
+
+
+            document.getElementById("li-2").setAttribute("class", "answer-false")
+            document.getElementById("li-1").setAttribute("class", "answer-true")
+        }
+
+
+
+    } else {
+
+
+        for (let index = 0; index < doc.length-1; index++) {
+            const element = doc[index].textContent;
+
+            var response = element
+
+            if (this.checkResponse(response.split(" ")[1], 'check-true')) {
+
+                var t = doc[index]
+
+                t.setAttribute("class", "answer-true")
+
+                return false
+            }
+
         }
 
     }
+
 
 
 }
@@ -171,7 +194,7 @@ Quiz.prototype.checkResponse = function (filter, event) {
     var result = true
     var arOp = []
     var ranking = new Ranking();
-   
+
     this.questions.forEach(element => {
 
         if (this.questions.indexOf(element) == 0) {
@@ -181,9 +204,9 @@ Quiz.prototype.checkResponse = function (filter, event) {
                 if (items.titleOpitons == filter) {
                     if (items.responseOptions) {
                         element.statusQuestion = false
-                         
-                        database.countResponseTrue = event !='check-true' ? this.countResponseTrue += 10:this.countResponseTrue;
-                        pointsGame.innerHTML = database.countResponseTrue 
+
+                        database.countResponseTrue = event != 'check-true' ? this.countResponseTrue += 10 : this.countResponseTrue;
+                        pointsGame.innerHTML = database.countResponseTrue
                         this.questions.shift()
                         result = true
                     } else {
@@ -210,13 +233,29 @@ Quiz.prototype.returnNewOjects = function () {
         }, [])
 
 }
-Quiz.prototype.returnNextQuestion = function () {
+Quiz.prototype.returnProbability = function (filter) {
+
+    var resultProbability = 0;
+    this.newListQuestion.filter((element) => {
 
 
+        if (element.letterOpition == filter) {
+
+            resultProbability = element.probability
+        }
+
+    })
+
+    return resultProbability
 }
 
-Quiz.prototype.returnSortQuestions = function () {
+Quiz.prototype.returnSortOption = function () {
 
+
+    let p = Math.floor(Math.random() * this.newListQuestion.length);
+
+
+    return p
 }
 
 Quiz.prototype.finishGame = function () {
@@ -232,18 +271,24 @@ Quiz.prototype.renderQuestion = function () {
 
     var str = '';
     var countOptions = 0;
-    var questions = ["0", "A", "B", "C", "D", "E", "F"];
+    var questions = ["0", "A)", "B)", "C)", "D)", "E)", "F)"];
 
     this.questions.forEach(element => {
 
         if (this.questions.indexOf(element) == 0 && element.statusQuestion == true) {
 
-          element.options.forEach(items => {
+            element.options.forEach(items => {
+
+                this.newListQuestion.push(items)
+
                 document.getElementById("title-question").innerText = element.title;
                 countOptions++
-              
-                str += `<li class="answer-tru " id="li-${countOptions}"><input type="radio" id="${countOptions}-option" onclick="validar(this,this.value)" name="selector" value="${items.titleOpitons}" ><label for="${countOptions}-option">${items.titleOpitons}</label><div class="check"><div class="inside"></div><div class="options">${questions[countOptions]}) <div></div></li>`
-              
+
+                // str += `<li class="answer-true-${countOptions} " id="li-${countOptions}"><input type="radio" id="${countOptions}-option" onclick="validar(this,this.value)" name="selector" value="${items.titleOpitons}" ><label for="${countOptions}-option">${items.titleOpitons}</label><div class="check"><div class="inside"></div><div class="options">${questions[countOptions]}) <div></div></li>`
+                str += `<li class="answer-true-${countOptions} " id="li-${countOptions}">`
+                str += `<div class="options" onclick="validar(this,this)" value="${items.titleOpitons}">${questions[countOptions]} ${items.titleOpitons}`
+                str += `</div>`
+                str += `</li>`
 
             })
 
@@ -263,6 +308,146 @@ Quiz.prototype.renderQuestion = function () {
 
 }
 
+Quiz.prototype.fifth = function () {
 
 
+    this.status = false;
+
+    var responseTrue = ''
+    var arrayOtherOptions = []
+    var countOptions = 0
+    var responseOptionsLetter = ''
+    var str = '';
+    this.newListQuestion.filter((element) => {
+
+
+        if (element.responseOptions) {
+            responseTrue = element.titleOpitons
+            responseOptionsLetter = element.letterOpition
+        }
+        if (!element.responseOptions) {
+            arrayOtherOptions.push(element)
+        }
+
+
+
+    })
+
+
+    arrayOtherOptions.sort(function () {
+        return .5 - Math.random();
+    });
+
+    for (let index = 0; index <= 1; index++) {
+
+        countOptions++
+        str += `<li class="answer-true-${countOptions} " id="li-${countOptions}">`
+        str += `<div class="options" onclick="validar(this,this)" value="${index == 1 ? responseTrue : arrayOtherOptions[0].titleOpitons}">${index == 1 ? responseOptionsLetter : arrayOtherOptions[0].letterOpition} ${index == 1 ? responseTrue : arrayOtherOptions[0].titleOpitons}`
+        str += `</div>`
+        str += `</li>`
+
+    }
+
+    document.getElementById('list-options').innerHTML = str;
+
+    disableOtherOption(quiz.idFiel, 'constructor')
+
+
+}
+
+Quiz.prototype.probability = function () {
+
+    let coe = document.getElementById('coe-option')
+    let gabi = document.getElementById('gabriel-option')
+    let romulo = document.getElementById('romulo-option')
+
+    let coeProbality = document.getElementById('coe-option-1')
+    let gabiProbality = document.getElementById('gabriel-option-2')
+    let romuloProbality = document.getElementById('romulo-option-3')
+
+    let placaOne = document.getElementById('placa-one-one')
+    let placaTwo = document.getElementById('placa-two-two')
+    let placaThree = document.getElementById('placa-three-three')
+
+    let placaOneProbability = document.getElementById('placa-one-one-porcent')
+    let placaTwoProbability = document.getElementById('placa-two-two-porcent')
+    let placaThreeProbability = document.getElementById('placa-three-three-porcent')
+
+
+    for (let index = 0; index < 2; index++) {
+
+        var c = this.desafio(), g = this.desafio(), r = this.desafio();
+
+
+        coe.innerHTML        = c;
+        gabi.innerHTML       = g;
+        romulo.innerHTML     = r;
+        placaOne.innerHTML   = c+") ";
+        placaTwo.innerHTML   = g+") ";
+        placaThree.innerHTML = r+") ";
+
+        coeProbality.innerHTML    = (this.returnProbability(c) * 100) + "%";
+        gabiProbality.innerHTML   = (this.returnProbability(g) * 100) + "%";
+        romuloProbality.innerHTML = (this.returnProbability(r) * 100) + "%";
+
+        placaOneProbability.innerHTML    =" " +  (this.returnProbability(c) * 100) + "%";
+        placaTwoProbability.innerHTML    =" " + (this.returnProbability(g) * 100) + "%";
+        placaThreeProbability.innerHTML  =" " + (this.returnProbability(r) * 100) + "%";
+
+
+
+    }
+
+
+
+
+
+}
+
+
+Quiz.prototype.desafio = function () {
+
+    let list = [];
+    let weight = [];
+
+    this.newListQuestion.forEach((element) => {
+
+        list.push(element.letterOpition)
+    })
+
+    this.newListQuestion.forEach((items) => {
+
+        weight.push(items.probability)
+
+    })
+
+    return getRandomItem(list, weight);
+
+
+}
+
+var rand = function (min, max) {
+    return Math.random() * (max - min) + min;
+};
+
+var getRandomItem = function (list, weight) {
+    var total_weight = weight.reduce(function (prev, cur, i, arr) {
+        return prev + cur;
+    });
+
+    var random_num = rand(0, total_weight);
+    var weight_sum = 0;
+
+
+    for (var i = 0; i < list.length; i++) {
+        weight_sum += weight[i];
+        weight_sum = +weight_sum.toFixed(2);
+
+        if (random_num <= weight_sum) {
+            return list[i];
+        }
+    }
+
+
+};
 

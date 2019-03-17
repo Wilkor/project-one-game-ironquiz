@@ -21,12 +21,61 @@
 
   <div class="shade cursor1">
 
+      <div class="modal fade" id="exampleModalLong-cards" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background:black">
+          <div class="modal-header">
+            <h5 class="modal-title-cards" id="exampleModalLongTitle-cards" style="color:#62c3fd">Help - Placas</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="container-photo">
+
+             <div class="placa-one">
+                <div id="placa-one-one">
+                  </div>
+
+                  <div id="placa-one-one-porcent">
+                    </div>
+
+
+             </div>
+
+             <div class="placa-two">
+                <div id="placa-two-two">
+                  </div>
+
+                  <div id="placa-two-two-porcent">
+                    </div>
+
+              </div>
+
+
+              <div class="placa-three">
+                  <div id="placa-three-three">
+                    </div>
+                    <div id="placa-three-three-porcent">
+                      </div>
+                </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+  
+
+
+
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content" style="background:black">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle" style="color:#62c3fd">Iron Help</h5>
+            <h5 class="modal-iron" id="exampleModalLongTitle" style="color:#62c3fd">Iron Help</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -37,22 +86,25 @@
 
 
             <div class="modal-body">
-                <span class="options-tas-coe" id="coe-option">A</span>
+              <span class="options-tas-coe" id="coe-option">A</span>
               <div id="coe">
-                  
-
               </div>
+              <span class="options-tas-coe-porcent" id="coe-option-1">A</span>
+
+
+
 
               <span class="options-tas-gabriel" id="gabriel-option">A</span>
               <div id="gabriel">
-                  
               </div>
+              <span class="options-tas-gabriel-porcent" id="gabriel-option-2">A</span>
+
+
+
               <span class="options-tas-romulo" id="romulo-option">A</span>
               <div id="romulo">
-                
-              
-
               </div>
+              <span class="options-tas-romulo-porcent" id="romulo-option-3">A</span>
 
             </div>
           </div>
@@ -66,11 +118,26 @@
     <div class="logo-game-game">
 
     </div>
+    <div class="painel-help">
+
+      <div class="qtd-help" id="qtd-help">você usou 0/3 ajuda(s)</div>
+      </div>
     <div class="help">
-      <div class="help-one">50:50</a></div>
-      <div class="help-two">Placas</div>
-      <div class="help-three"><a href="#exampleModalLong" style="text-decoration: none;color: white" data-toggle="modal"
-          data-target="#exampleModalLong">TAs & Teacher</a></div>
+
+
+      <div class="help-one" id="help-1" onClick="half(this)">50:50</div>
+
+     <a href="#exampleModalLong-cards" style="text-decoration: none;color: white" data-toggle="modal"
+        data-target="#exampleModalLong-cards" >
+        <div class="help-two"  id="help-2" onClick="half(this)" >Placas</div></a>
+
+
+
+         <a href="#exampleModalLong" style="text-decoration: none;color: white" data-toggle="modal"
+          data-target="#exampleModalLong"> <div class="help-three" id="help-3" onClick="half(this)">TAs & Teacher</div></a>
+
+
+
     </div>
     <div class="blackboard">
 
