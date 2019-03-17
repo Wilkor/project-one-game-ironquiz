@@ -9,7 +9,8 @@ var Quiz = function (name) {
     this.currentTime = 0;
     this.intervalId = 0;
     this.status = true;
-    this.qtdHelp = 0 ;
+    this.qtdHelp = 0;
+    
 
 
     this.getNickName = function () {
@@ -167,7 +168,7 @@ Quiz.prototype.checkConditionalElse = function (optionId) {
     } else {
 
 
-        for (let index = 0; index < doc.length-1; index++) {
+        for (let index = 0; index < doc.length - 1; index++) {
             const element = doc[index].textContent;
 
             var response = element
@@ -204,7 +205,6 @@ Quiz.prototype.checkResponse = function (filter, event) {
                 if (items.titleOpitons == filter) {
                     if (items.responseOptions) {
                         element.statusQuestion = false
-
                         database.countResponseTrue = event != 'check-true' ? this.countResponseTrue += 10 : this.countResponseTrue;
                         pointsGame.innerHTML = database.countResponseTrue
                         this.questions.shift()
@@ -223,14 +223,19 @@ Quiz.prototype.checkResponse = function (filter, event) {
 
 }
 
-Quiz.prototype.returnNewOjects = function () {
+Quiz.prototype.returnNewOjects = function (filterHard) {
 
-    questions.filter((element) => element.statusQuestion === true)
-        .map((element) => {
+    console.log(filterHard)
 
-            newListQuestion.push({ element });
+   this.questions.forEach(element=>{
 
-        }, [])
+       if(element.hardNivel === filterHard){
+
+        this.newListQuestion.push(element)
+       }
+   })
+
+ console.log(this.newListQuestion)
 
 }
 Quiz.prototype.returnProbability = function (filter) {
@@ -268,14 +273,41 @@ Quiz.prototype.finishGame = function () {
 
 Quiz.prototype.renderQuestion = function () {
 
+  
+
 
     var str = '';
     var countOptions = 0;
     var questions = ["0", "A)", "B)", "C)", "D)", "E)", "F)"];
 
-    this.questions.forEach(element => {
+   var filter = 0 ;
 
-        if (this.questions.indexOf(element) == 0 && element.statusQuestion == true) {
+    if(this.countResponseTrue <10){
+
+        filter = 1
+    }else{
+
+        filter = 2
+    }
+    
+  var arrayT = []
+
+    this.questions.forEach(element=>{
+      
+
+         if(element.hardNivel == 1){
+        
+            arrayT.push(element)
+         }
+
+    
+    })
+
+
+
+     arrayT.forEach(element => {
+
+        if (arrayT.indexOf(element) == 0 && element.statusQuestion == true) {
 
             element.options.forEach(items => {
 
@@ -318,6 +350,8 @@ Quiz.prototype.fifth = function () {
     var countOptions = 0
     var responseOptionsLetter = ''
     var str = '';
+
+
     this.newListQuestion.filter((element) => {
 
 
@@ -379,20 +413,20 @@ Quiz.prototype.probability = function () {
         var c = this.desafio(), g = this.desafio(), r = this.desafio();
 
 
-        coe.innerHTML        = c;
-        gabi.innerHTML       = g;
-        romulo.innerHTML     = r;
-        placaOne.innerHTML   = c+") ";
-        placaTwo.innerHTML   = g+") ";
-        placaThree.innerHTML = r+") ";
+        coe.innerHTML = c;
+        gabi.innerHTML = g;
+        romulo.innerHTML = r;
+        placaOne.innerHTML = c + ") ";
+        placaTwo.innerHTML = g + ") ";
+        placaThree.innerHTML = r + ") ";
 
-        coeProbality.innerHTML    = (this.returnProbability(c) * 100) + "%";
-        gabiProbality.innerHTML   = (this.returnProbability(g) * 100) + "%";
+        coeProbality.innerHTML = (this.returnProbability(c) * 100) + "%";
+        gabiProbality.innerHTML = (this.returnProbability(g) * 100) + "%";
         romuloProbality.innerHTML = (this.returnProbability(r) * 100) + "%";
 
-        placaOneProbability.innerHTML    =" " +  (this.returnProbability(c) * 100) + "%";
-        placaTwoProbability.innerHTML    =" " + (this.returnProbability(g) * 100) + "%";
-        placaThreeProbability.innerHTML  =" " + (this.returnProbability(r) * 100) + "%";
+        placaOneProbability.innerHTML = " " + (this.returnProbability(c) * 100) + "%";
+        placaTwoProbability.innerHTML = " " + (this.returnProbability(g) * 100) + "%";
+        placaThreeProbability.innerHTML = " " + (this.returnProbability(r) * 100) + "%";
 
 
 
@@ -450,4 +484,8 @@ var getRandomItem = function (list, weight) {
 
 
 };
+
+
+
+
 

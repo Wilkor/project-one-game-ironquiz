@@ -1,100 +1,103 @@
 var questions = [
 
     {
-        title: "0 Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe.",
+        title: "nivel 1 - 1 item ",
 
         options: [
             {
-                letterOpition:'A',
+                letterOpition: 'A',
                 titleOpitons: 'Pedrão',
                 probability: 0.2
-                
+
             },
             {
-                letterOpition:'B',  
+                letterOpition: 'B',
                 titleOpitons: 'Josafá',
                 probability: 0.2
             },
             {
-                letterOpition:'C',
+                letterOpition: 'C',
                 titleOpitons: 'Fabiano',
                 responseOptions: true,
                 probability: 0.5
             },
             {
-                letterOpition:'D',
+                letterOpition: 'D',
                 titleOpitons: 'Esposa',
                 probability: 0.1
             }
-    
-            
+
+
         ],
         statusQuestion: true,
+        hardNivel: 1
 
-     
-        
+
+
     },
     {
-        title: "1 Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe.Quem é julitte?",
+        title: "nivel 1 - 2 item ",
 
         options: [
             {
-                letterOpition:'A',
+                letterOpition: 'A',
                 titleOpitons: 'Namorada',
                 responseOptions: true,
                 probability: 0.5
             },
             {
-                letterOpition:'B',
+                letterOpition: 'B',
                 titleOpitons: 'Noiva',
                 probability: 0.2
             },
             {
-                letterOpition:'C',
+                letterOpition: 'C',
                 titleOpitons: 'Esposa',
-                probability:0.2
+                probability: 0.2
             },
             {
-                letterOpition:'D', 
+                letterOpition: 'D',
                 titleOpitons: 'Esposa',
-                probability:0.1
+                probability: 0.1
             }
         ],
-        
-        statusQuestion: true,
-      
 
-    },{
-        title: " 2 Originalmente uma extensão proprietária da Microsoft (não prefixada), a propriedade word-wrap foi renomeada para overflow-wrap no rascunho atual do texto de especificações do CSS3. Compilações estáveis do Google Chrome e do Opera têm suporte a nova sintaxe. Quem é Wilkor?",
+        statusQuestion: true,
+        hardNivel: 1
+
+
+    }, {
+        title: " nivel 2 - 3 item ",
 
         options: [
             {
-                letterOpition:'A',
+                letterOpition: 'A',
                 titleOpitons: 'Marido',
                 responseOptions: true,
-                probability:0.5
+                probability: 0.5
             },
             {
-                letterOpition:'B',
+                letterOpition: 'B',
                 titleOpitons: 'Noiva',
-                probability:0.2
+                probability: 0.2
             },
             {
-                letterOpition:'C',
+                letterOpition: 'C',
                 titleOpitons: 'Esposa',
-                probability:0.2
+                probability: 0.2
             },
             {
-                letterOpition:'D',
+                letterOpition: 'D',
                 titleOpitons: 'Esposa2',
-                probability:0.1
+                probability: 0.1
             }
         ],
-        
+
         statusQuestion: true,
-      
+        hardNivel: 2
+
     }
-    
+
 
 ]
 
