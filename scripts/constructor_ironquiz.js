@@ -1,16 +1,19 @@
 var Quiz = function (name) {
 
-    this.questions = questions;
+    this.nivelOne = nivelOne;
+    this.nivelTwo = nivelTwo;
+    this.nivelThree = nivelThree;
+
     this.countResponseTrue = 0;
     this.newListQuestion = [];
     this.idField = '',
-    this.milliseconds = 0;
+        this.milliseconds = 0;
     this.second = 0;
     this.currentTime = 0;
     this.intervalId = 0;
     this.status = true;
     this.qtdHelp = 0;
-    
+
 
 
     this.getNickName = function () {
@@ -195,10 +198,29 @@ Quiz.prototype.checkResponse = function (filter, event) {
     var result = true
     var arOp = []
     var ranking = new Ranking();
+    var arrayNivel = [];
 
-    this.questions.forEach(element => {
 
-        if (this.questions.indexOf(element) == 0) {
+
+    if (this.countResponseTrue < 10) {
+
+        arrayNivel = this.nivelOne;
+
+    } else if (this.countResponseTrue >= 10 || this.countResponseTrue <= 50) {
+
+
+
+        arrayNivel = this.nivelTwo;
+
+    } else if (this.countResponseTrue > 50) {
+
+        arrayNivel = this.nivelThree;
+    }
+
+
+    arrayNivel.forEach(element => {
+
+        if (arrayNivel.indexOf(element) == 0) {
 
             element.options.forEach(items => {
                 arOp.push(items)
@@ -207,7 +229,7 @@ Quiz.prototype.checkResponse = function (filter, event) {
                         element.statusQuestion = false
                         database.countResponseTrue = event != 'check-true' ? this.countResponseTrue += 10 : this.countResponseTrue;
                         pointsGame.innerHTML = database.countResponseTrue
-                        this.questions.shift()
+                        arrayNivel.shift()
                         result = true
                     } else {
 
@@ -225,17 +247,16 @@ Quiz.prototype.checkResponse = function (filter, event) {
 
 Quiz.prototype.returnNewOjects = function (filterHard) {
 
-    console.log(filterHard)
 
-   this.questions.forEach(element=>{
+    //    this.questions.forEach(element=>{
 
-       if(element.hardNivel === filterHard){
+    //        if(element.hardNivel === filterHard){
 
-        this.newListQuestion.push(element)
-       }
-   })
+    //         this.newListQuestion.push(element)
+    //        }
+    //    })
 
- console.log(this.newListQuestion)
+
 
 }
 Quiz.prototype.returnProbability = function (filter) {
@@ -273,41 +294,36 @@ Quiz.prototype.finishGame = function () {
 
 Quiz.prototype.renderQuestion = function () {
 
-  
+
 
 
     var str = '';
     var countOptions = 0;
     var questions = ["0", "A)", "B)", "C)", "D)", "E)", "F)"];
 
-   var filter = 0 ;
+    var filter = 0;
 
-    if(this.countResponseTrue <10){
 
-        filter = 1
-    }else{
+    if (this.countResponseTrue < 10) {
 
-        filter = 2
+        arrayNivel = this.nivelOne;
+
+    } else if (this.countResponseTrue >= 10 || this.countResponseTrue <= 50) {
+
+
+
+        arrayNivel = this.nivelTwo;
+
+    } else if (this.countResponseTrue > 50) {
+
+        arrayNivel = this.nivelThree;
     }
-    
-  var arrayT = []
-
-    this.questions.forEach(element=>{
-      
-
-         if(element.hardNivel == 1){
-        
-            arrayT.push(element)
-         }
-
-    
-    })
 
 
 
-     arrayT.forEach(element => {
+    arrayNivel.forEach(element => {
 
-        if (arrayT.indexOf(element) == 0 && element.statusQuestion == true) {
+        if (arrayNivel.indexOf(element) == 0 && element.statusQuestion == true) {
 
             element.options.forEach(items => {
 
@@ -330,6 +346,8 @@ Quiz.prototype.renderQuestion = function () {
 
 
     })
+
+
 
     document.getElementById('list-options').innerHTML = str;
 
@@ -443,6 +461,10 @@ Quiz.prototype.desafio = function () {
 
     let list = [];
     let weight = [];
+
+
+    console.log(list)
+    console.log(weight)
 
     this.newListQuestion.forEach((element) => {
 

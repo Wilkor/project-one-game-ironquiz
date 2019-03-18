@@ -134,12 +134,6 @@ function disableOtherOption(idField, whocall) {
 
   }
 
-
-
-
-
-
-
 }
 
 function validar(event, text) {
@@ -150,7 +144,6 @@ function validar(event, text) {
   var textOption = text.getAttribute("value")
 
 
-  console.log(textOption)
   if (quiz.checkResponse(textOption, t)) {
 
     disableOtherOption(quiz.idFiel, 'main')
@@ -174,7 +167,7 @@ function validar(event, text) {
   } else {
 
 
-    console.log(textOption)
+  
 
     quiz.stopClick(quiz.intervalId)
 

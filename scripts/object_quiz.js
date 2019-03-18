@@ -1,4 +1,4 @@
-var questions = [
+var nivelOne = [
 
     {
         title: "nivel 1 - 1 item ",
@@ -30,7 +30,7 @@ var questions = [
 
         ],
         statusQuestion: true,
-        hardNivel: 1
+    
 
 
 
@@ -63,11 +63,14 @@ var questions = [
         ],
 
         statusQuestion: true,
-        hardNivel: 1
+    
 
 
-    }, {
-        title: " nivel 2 - 3 item ",
+    }
+]
+
+var nivelTwo= [ {
+        title: " nivel 2 - 1 item ",
 
         options: [
             {
@@ -94,12 +97,113 @@ var questions = [
         ],
 
         statusQuestion: true,
-        hardNivel: 2
+    
+
+    },
+    {
+        title: " nivel 2 - 2 item ",
+
+        options: [
+            {
+                letterOpition: 'A',
+                titleOpitons: 'Marido',
+                responseOptions: true,
+                probability: 0.5
+            },
+            {
+                letterOpition: 'B',
+                titleOpitons: 'Noiva',
+                probability: 0.2
+            },
+            {
+                letterOpition: 'C',
+                titleOpitons: 'Esposa',
+                probability: 0.2
+            },
+            {
+                letterOpition: 'D',
+                titleOpitons: 'Esposa2',
+                probability: 0.1
+            }
+        ],
+
+        statusQuestion: true,
+     
+
+    }
+
+]
+
+
+var nivelThree = [
+
+    {
+        title: " nivel 3 - 1 item ",
+
+        options: [
+            {
+                letterOpition: 'A',
+                titleOpitons: 'Marido',
+                responseOptions: true,
+                probability: 0.5
+            },
+            {
+                letterOpition: 'B',
+                titleOpitons: 'Noiva',
+                probability: 0.2
+            },
+            {
+                letterOpition: 'C',
+                titleOpitons: 'Esposa',
+                probability: 0.2
+            },
+            {
+                letterOpition: 'D',
+                titleOpitons: 'Esposa2',
+                probability: 0.1
+            }
+        ],
+
+        statusQuestion: true,
+    
+
+    },
+    {
+        title: " nivel 3 - 2 item ",
+
+        options: [
+            {
+                letterOpition: 'A',
+                titleOpitons: 'Marido',
+                responseOptions: true,
+                probability: 0.5
+            },
+            {
+                letterOpition: 'B',
+                titleOpitons: 'Noiva',
+                probability: 0.2
+            },
+            {
+                letterOpition: 'C',
+                titleOpitons: 'Esposa',
+                probability: 0.2
+            },
+            {
+                letterOpition: 'D',
+                titleOpitons: 'Esposa2',
+                probability: 0.1
+            }
+        ],
+
+        statusQuestion: true,
+     
 
     }
 
 
+
 ]
+
 
 
 
