@@ -1,8 +1,8 @@
 var quiz = new Quiz();
 var ranking = new Ranking();
 
-//////quiz.shuffle()
-//quiz.shuffleOption()
+
+quiz.shuffleOption()
 quiz.renderQuestion()
 quiz.probability()
 quiz.desafio();
@@ -147,13 +147,6 @@ function validar(event, text) {
   if (quiz.checkResponse(textOption, t)) {
 
     disableOtherOption(quiz.idFiel, 'main')
-
-    setTimeout(() => {
-      // p.setCookie(quiz.countResponseTrue,'Player 1')
-
-    }, 1000)
-
-
     quiz.stopClick(this.intervalId)
 
     setTimeout(function () {
@@ -167,7 +160,7 @@ function validar(event, text) {
   } else {
 
 
-  
+
 
     quiz.stopClick(quiz.intervalId)
 
