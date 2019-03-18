@@ -10,8 +10,6 @@ setIntervalGame();
 
 
 
-quiz.returnNewOjects(1)
-
 var data = new Date();
 
 var hour = data.getHours();
@@ -27,7 +25,26 @@ function setIntervalGame() {
     quiz.setMilliseconds()
     quiz.setSeconds()
 
-    if (quiz.second >= 20) {
+    if (quiz.second >= 15 ) {
+
+     document.getElementById("secDec").setAttribute("class", "number time-alert")
+     document.getElementById("secUni").setAttribute("class", "number1 time-alert")
+     document.getElementById("milDec").setAttribute("class", "number time-alert")
+     document.getElementById("milUni").setAttribute("class", "number time-alert")
+     
+    }
+
+
+    if (quiz.second >= 25 ) {
+
+      document.getElementById("secDec").setAttribute("class", "number time-alert-red")
+      document.getElementById("secUni").setAttribute("class", "number1 time-alert-red")
+      document.getElementById("milDec").setAttribute("class", "number time-alert-red")
+      document.getElementById("milUni").setAttribute("class", "number time-alert-red")
+      
+     }
+
+    if (quiz.second >= 30) {
 
 
       quiz.stopClick(quiz.intervalId)
