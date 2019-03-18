@@ -110,6 +110,52 @@ ul li input[type=radio]{
     
 }
 
+
+@keyframes time-alert {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+.time-alert {
+
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.0em;
+  margin-left:1px;
+  color:yellow;
+ -webkit-animation: time-alert.75s linear infinite;
+ -moz-animation: time-alert.75s linear infinite;
+ -ms-animation: time-alert.75s linear infinite;
+ -o-animation: time-alert.75s linear infinite;
+  animation: time-alert.75s linear infinite;
+  
+  
+  
+}
+
+
+@keyframes time-alert-red {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+.time-alert-red {
+
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.0em;
+  margin-left:1px;
+  color:red;
+  font-weight: bold;
+ -webkit-animation: time-alert-red.75s linear infinite;
+ -moz-animation: time-alert-red.75s linear infinite;
+ -ms-animation: time-alert-red.75s linear infinite;
+ -o-animation: time-alert-red.75s linear infinite;
+  animation: time-alert-red.75s linear infinite;
+  
+  
+  
+}
+
+
 .answer-true-1 {
 
   display: flex;
@@ -200,7 +246,7 @@ ul li input[type=radio]{
   
   .container-logo .logo-game{
  
-      background: url('../img/logo-iron2.png') 0 0 no-repeat;
+      background: url('../img/quiz-png-1.png') 0 0 no-repeat;
       background-size: 100%;
       display: inline-block;
   }

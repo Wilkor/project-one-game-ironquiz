@@ -8,9 +8,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
 
+    <script>
+
+        function GetQueryString(a) {
+            a = a || window.location.search.substr(1).split('&').concat(window.location.hash.substr(1).split("&"));
+
+            if (typeof a === "string")
+                a = a.split("#").join("&").split("&");
+
+
+            if (!a) return {};
+
+            var b = {};
+            for (var i = 0; i < a.length; ++i) {
+
+                var p = a[i].split('=');
+
+                if (p.length != 2) continue;
+
+                b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+
+
+            var hora = b.time.split(",");
+
+            var data = new Date();
+
+            var hourEnd = data.getHours()
+            var minutesEnd = data.getMinutes()
+
+
+            var h = hourEnd - parseInt(hora[0])
+            var m = minutesEnd - parseInt(hora[1])
+
+
+            if (h < 10) {
+
+                h = "0" + h
+
+            }
+
+
+            if (m < 10) {
+
+                m = "0" + m
+
+            }
+
+            document.getElementById("time").innerHTML = `${h}:${m}`
+
+
+
+
+
+
+            document.getElementById("name").innerHTML = b.player
+            document.getElementById("points").innerHTML = b.pontos
+
+            console.log(b);
+        }
+
+    </script>
 </head>
 
-<body>
+<body onload="GetQueryString()">
 
     <div class="shade-game-over">
         <div class="blackboard-game-over">
@@ -30,21 +91,23 @@
                     </tr>
                     <tr>
                         <td><span id="name"></span></td>
-                        <td><span id="points">10</span></td>
-                        <td><span>---</span></td>
+                        <td><span id="points"></span></td>
+                        <td><span id="time"></span></td>
                     </tr>
 
                 </table>
 
             </div>
 
-      
+
 
         </div>
         <div class="container-buttons">
-                <a  href="index.html" class="not-active"> <div class="btnTryAgain ">Try again!</div></a>
-               
-            </div>
+            <a href="index.html" class="not-active">
+                <div class="btnTryAgain ">Try again!</div>
+            </a>
+
+        </div>
     </div>
 
 </body>
@@ -52,4 +115,3 @@
 </html>
 <script src="../scripts/database.js"></script>
 <script src="../scripts/ranking.js"></script>
-

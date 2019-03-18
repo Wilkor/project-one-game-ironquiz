@@ -1,13 +1,22 @@
 var quiz = new Quiz();
 var ranking = new Ranking();
 
-quiz.shuffle()
+
 quiz.shuffleOption()
-quiz.renderQuestion();
+quiz.renderQuestion()
 quiz.probability()
 quiz.desafio();
-
 setIntervalGame();
+
+
+
+var data = new Date();
+
+var hour = data.getHours();
+var minutes = data.getMinutes();
+var second = data.getSeconds();
+
+
 
 function setIntervalGame() {
 
@@ -16,124 +25,131 @@ function setIntervalGame() {
     quiz.setMilliseconds()
     quiz.setSeconds()
 
-    // if (quiz.second >= 15) {
+    if (quiz.second >= 15 ) {
 
-    
-    //  quiz.stopClick(quiz.intervalId)
+     document.getElementById("secDec").setAttribute("class", "number time-alert")
+     document.getElementById("secUni").setAttribute("class", "number1 time-alert")
+     document.getElementById("milDec").setAttribute("class", "number time-alert")
+     document.getElementById("milUni").setAttribute("class", "number time-alert")
+     
+    }
 
-    //  setTimeout(() => {
 
-    //    window.location.href = "gameover.html"
+    if (quiz.second >= 25 ) {
 
-    //  }, 700)
+      document.getElementById("secDec").setAttribute("class", "number time-alert-red")
+      document.getElementById("secUni").setAttribute("class", "number1 time-alert-red")
+      document.getElementById("milDec").setAttribute("class", "number time-alert-red")
+      document.getElementById("milUni").setAttribute("class", "number time-alert-red")
+      
+     }
 
-    // }
+    if (quiz.second >= 30) {
 
-  
+
+      quiz.stopClick(quiz.intervalId)
+
+      setTimeout(() => {
+        window.location.href = `gameover.html?player=Payer1&pontos=${quiz.countResponseTrue}&time=${hour},${minutes},${second}`
+      }, 700)
+
+    }
+
+
 
   }, 10)
 }
 
 
-function half(context){
-
+function half(context) {
 
 
   var setID = context.getAttribute("id")
 
-
-
-
-  if(context.getAttribute("class")=="help-one"){
+  if (context.getAttribute("class") == "help-one") {
 
     document.getElementById(setID).style.display = "none";
-     quiz.fifth() 
+    quiz.fifth()
 
-     document.getElementById('qtd-help').innerHTML= `Você usou ${quiz.qtdHelp +=1}/3 de ajuda(s)`
+    document.getElementById('qtd-help').innerHTML = `Você usou ${quiz.qtdHelp += 1}/3 de ajuda(s)`
 
-  }else if(context.getAttribute("class")=="help-two"){
+  } else if (context.getAttribute("class") == "help-two") {
 
     document.getElementById(setID).style.display = "none";
-    document.getElementById('qtd-help').innerHTML=`Você usou ${quiz.qtdHelp +=1}/3 de ajuda(s)`
+    document.getElementById('qtd-help').innerHTML = `Você usou ${quiz.qtdHelp += 1}/3 de ajuda(s)`
     return false;
 
-  }else if(context.getAttribute("class")=="help-three"){
+  } else if (context.getAttribute("class") == "help-three") {
 
-    document.getElementById('qtd-help').innerHTML= `Você usou ${quiz.qtdHelp +=1}/3 de ajuda(s)`
+    document.getElementById('qtd-help').innerHTML = `Você usou ${quiz.qtdHelp += 1}/3 de ajuda(s)`
     document.getElementById(setID).style.display = "none";
     return false;
 
   }
 
- 
+
 
 }
 
 
-function disableOtherOption(idField,whocall) {
+function disableOtherOption(idField, whocall) {
 
 
-  if(!quiz.status){
+  if (!quiz.status) {
 
     if (idField == "li-1") {
 
       document.getElementById("li-2").style.pointerEvents = "none";
 
-  
+
     } else if (idField == "li-2") {
-  
+
       document.getElementById("li-1").style.pointerEvents = "none";
-   
-  
-    } 
+
+
+    }
 
     return false;
 
 
   }
 
-  if(whocall=='main'){
+  if (whocall == 'main') {
 
-      if (idField == "li-1") {
+    if (idField == "li-1") {
 
-    document.getElementById("li-2").style.pointerEvents = "none";
-    document.getElementById("li-3").style.pointerEvents = "none";
+      document.getElementById("li-2").style.pointerEvents = "none";
+      document.getElementById("li-3").style.pointerEvents = "none";
 
-  } else if (idField == "li-2") {
+    } else if (idField == "li-2") {
 
-    document.getElementById("li-1").style.pointerEvents = "none";
-    document.getElementById("li-3").style.pointerEvents = "none";
+      document.getElementById("li-1").style.pointerEvents = "none";
+      document.getElementById("li-3").style.pointerEvents = "none";
 
-  } else if (idField == "li-3") {
+    } else if (idField == "li-3") {
 
-    document.getElementById("li-1").style.pointerEvents = "none";
-    document.getElementById("li-2").style.pointerEvents = "none";
+      document.getElementById("li-1").style.pointerEvents = "none";
+      document.getElementById("li-2").style.pointerEvents = "none";
 
-  }
+    }
 
-  }else{
+  } else {
 
 
     if (idField == "li-1") {
 
       document.getElementById("li-2").style.pointerEvents = "none";
 
-  
+
     } else if (idField == "li-2") {
-  
+
       document.getElementById("li-1").style.pointerEvents = "none";
-   
-  
-    } 
 
 
     }
-  
 
 
-  
-
-
+  }
 
 }
 
@@ -144,21 +160,14 @@ function validar(event, text) {
   quiz.idFiel = t.getAttribute("id");
   var textOption = text.getAttribute("value")
 
-  
 
   if (quiz.checkResponse(textOption, t)) {
 
-    disableOtherOption(quiz.idFiel,'main')
-
-    setTimeout(()=>{
-     // p.setCookie(quiz.countResponseTrue,'Player 1')
-
-    },1000)
-
-
+    disableOtherOption(quiz.idFiel, 'main')
     quiz.stopClick(this.intervalId)
 
     setTimeout(function () {
+
       quiz.renderQuestion()
       quiz.resetClick()
 
@@ -167,26 +176,31 @@ function validar(event, text) {
 
   } else {
 
+
+
+
     quiz.stopClick(quiz.intervalId)
 
     t.setAttribute("class", "answer-false")
-    
-    if(!quiz.status){
 
-    
+    if (!quiz.status) {
+
+
       quiz.checkConditionalElse(t.getAttribute("id"))
 
-      
-    }else{
+
+    } else {
 
       quiz.checkConditionalElse()
     }
- 
-  
-    disableOtherOption(quiz.idFiel,'constructor')
-        setTimeout(() => {
-      window.location.href = "gameover.html";
+
+
+    disableOtherOption(quiz.idFiel, 'constructor')
+    setTimeout(() => {
+      window.location.href = `gameover.html?player=Payer1&pontos=${quiz.countResponseTrue}&time=${hour},${minutes},${second}`
     }, 1000)
+
+
 
   }
 

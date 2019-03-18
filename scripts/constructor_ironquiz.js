@@ -1,6 +1,8 @@
 var Quiz = function (name) {
 
-    this.questions = questions;
+    this.nivelOne = nivelOne;
+    this.nivelTwo = nivelTwo;
+    this.nivelThree = nivelThree;
     this.countResponseTrue = 0;
     this.newListQuestion = [];
     this.idField = '',
@@ -9,7 +11,8 @@ var Quiz = function (name) {
     this.currentTime = 0;
     this.intervalId = 0;
     this.status = true;
-    this.qtdHelp = 0 ;
+    this.qtdHelp = 0;
+
 
 
     this.getNickName = function () {
@@ -39,19 +42,31 @@ Quiz.prototype.shuffle = function () {
 Quiz.prototype.shuffleOption = function (element) {
 
 
-    // console.log(element)
+    if (this.countResponseTrue < 10) {
 
-    // this.questions.forEach((element)=>{
+        arrayNivel = this.nivelOne;
 
-    //     element.options.sort( ()=> {
-    //      // return  .5 - Math.random() ;
-
-    //     console.log( element.options)
-
-    //       });
+    } else if (this.countResponseTrue > 10 || this.countResponseTrue < 50) {
 
 
-    // })
+
+        arrayNivel = this.nivelTwo;
+
+    } else if (this.countResponseTrue > 50) {
+
+        arrayNivel = this.nivelThree;
+    }
+
+
+    arrayNivel.forEach((element) => {
+
+        element.options.sort(() => {
+            return .5 - Math.random();
+
+        });
+
+
+    })
 
 
 }
@@ -167,7 +182,7 @@ Quiz.prototype.checkConditionalElse = function (optionId) {
     } else {
 
 
-        for (let index = 0; index < doc.length-1; index++) {
+        for (let index = 0; index < doc.length - 1; index++) {
             const element = doc[index].textContent;
 
             var response = element
@@ -194,20 +209,38 @@ Quiz.prototype.checkResponse = function (filter, event) {
     var result = true
     var arOp = []
     var ranking = new Ranking();
+    var arrayNivel = [];
 
-    this.questions.forEach(element => {
 
-        if (this.questions.indexOf(element) == 0) {
+
+    if (this.countResponseTrue < 10) {
+
+        arrayNivel = this.nivelOne;
+
+    } else if (this.countResponseTrue > 10 || this.countResponseTrue < 50) {
+
+
+
+        arrayNivel = this.nivelTwo;
+
+    } else if (this.countResponseTrue > 50) {
+
+        arrayNivel = this.nivelThree;
+    }
+
+
+    arrayNivel.forEach(element => {
+
+        if (arrayNivel.indexOf(element) == 0) {
 
             element.options.forEach(items => {
                 arOp.push(items)
                 if (items.titleOpitons == filter) {
                     if (items.responseOptions) {
                         element.statusQuestion = false
-
                         database.countResponseTrue = event != 'check-true' ? this.countResponseTrue += 10 : this.countResponseTrue;
                         pointsGame.innerHTML = database.countResponseTrue
-                        this.questions.shift()
+                        arrayNivel.shift()
                         result = true
                     } else {
 
@@ -223,21 +256,12 @@ Quiz.prototype.checkResponse = function (filter, event) {
 
 }
 
-Quiz.prototype.returnNewOjects = function () {
-
-    questions.filter((element) => element.statusQuestion === true)
-        .map((element) => {
-
-            newListQuestion.push({ element });
-
-        }, [])
-
-}
 Quiz.prototype.returnProbability = function (filter) {
 
     var resultProbability = 0;
-    this.newListQuestion.filter((element) => {
 
+
+    this.newListQuestion.filter((element) => {
 
         if (element.letterOpition == filter) {
 
@@ -269,13 +293,35 @@ Quiz.prototype.finishGame = function () {
 Quiz.prototype.renderQuestion = function () {
 
 
+    this.shuffleOption()
+
     var str = '';
     var countOptions = 0;
     var questions = ["0", "A)", "B)", "C)", "D)", "E)", "F)"];
 
-    this.questions.forEach(element => {
+    var filter = 0;
 
-        if (this.questions.indexOf(element) == 0 && element.statusQuestion == true) {
+
+    if (this.countResponseTrue < 10) {
+
+        arrayNivel = this.nivelOne;
+
+    } else if (this.countResponseTrue >= 10 || this.countResponseTrue <= 50) {
+
+
+
+        arrayNivel = this.nivelTwo;
+
+    } else if (this.countResponseTrue > 50) {
+
+        arrayNivel = this.nivelThree;
+    }
+
+
+
+    arrayNivel.forEach(element => {
+
+        if (arrayNivel.indexOf(element) == 0 && element.statusQuestion == true) {
 
             element.options.forEach(items => {
 
@@ -283,8 +329,6 @@ Quiz.prototype.renderQuestion = function () {
 
                 document.getElementById("title-question").innerText = element.title;
                 countOptions++
-
-                // str += `<li class="answer-true-${countOptions} " id="li-${countOptions}"><input type="radio" id="${countOptions}-option" onclick="validar(this,this.value)" name="selector" value="${items.titleOpitons}" ><label for="${countOptions}-option">${items.titleOpitons}</label><div class="check"><div class="inside"></div><div class="options">${questions[countOptions]}) <div></div></li>`
                 str += `<li class="answer-true-${countOptions} " id="li-${countOptions}">`
                 str += `<div class="options" onclick="validar(this,this)" value="${items.titleOpitons}">${questions[countOptions]} ${items.titleOpitons}`
                 str += `</div>`
@@ -298,6 +342,8 @@ Quiz.prototype.renderQuestion = function () {
 
 
     })
+
+
 
     document.getElementById('list-options').innerHTML = str;
 
@@ -318,6 +364,8 @@ Quiz.prototype.fifth = function () {
     var countOptions = 0
     var responseOptionsLetter = ''
     var str = '';
+
+
     this.newListQuestion.filter((element) => {
 
 
@@ -379,20 +427,20 @@ Quiz.prototype.probability = function () {
         var c = this.desafio(), g = this.desafio(), r = this.desafio();
 
 
-        coe.innerHTML        = c;
-        gabi.innerHTML       = g;
-        romulo.innerHTML     = r;
-        placaOne.innerHTML   = c+") ";
-        placaTwo.innerHTML   = g+") ";
-        placaThree.innerHTML = r+") ";
+        coe.innerHTML = c;
+        gabi.innerHTML = g;
+        romulo.innerHTML = r;
+        placaOne.innerHTML = c + ") ";
+        placaTwo.innerHTML = g + ") ";
+        placaThree.innerHTML = r + ") ";
 
-        coeProbality.innerHTML    = (this.returnProbability(c) * 100) + "%";
-        gabiProbality.innerHTML   = (this.returnProbability(g) * 100) + "%";
+        coeProbality.innerHTML = (this.returnProbability(c) * 100) + "%";
+        gabiProbality.innerHTML = (this.returnProbability(g) * 100) + "%";
         romuloProbality.innerHTML = (this.returnProbability(r) * 100) + "%";
 
-        placaOneProbability.innerHTML    =" " +  (this.returnProbability(c) * 100) + "%";
-        placaTwoProbability.innerHTML    =" " + (this.returnProbability(g) * 100) + "%";
-        placaThreeProbability.innerHTML  =" " + (this.returnProbability(r) * 100) + "%";
+        placaOneProbability.innerHTML = " " + (this.returnProbability(c) * 100) + "%";
+        placaTwoProbability.innerHTML = " " + (this.returnProbability(g) * 100) + "%";
+        placaThreeProbability.innerHTML = " " + (this.returnProbability(r) * 100) + "%";
 
 
 
@@ -409,6 +457,8 @@ Quiz.prototype.desafio = function () {
 
     let list = [];
     let weight = [];
+
+
 
     this.newListQuestion.forEach((element) => {
 
@@ -450,4 +500,8 @@ var getRandomItem = function (list, weight) {
 
 
 };
+
+
+
+
 
