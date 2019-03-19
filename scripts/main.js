@@ -179,7 +179,6 @@ function validar(event, text) {
 
   if (quiz.checkResponse(textOption, t)) {
 
-    document.getElementById('text-speech').innerHTML = "Certa resposta";
     document.getElementById("play").click()
 
 
@@ -197,7 +196,7 @@ function validar(event, text) {
   } else {
 
 
-
+   
     document.getElementById("play").click()
     quiz.stopClick(quiz.intervalId)
 
