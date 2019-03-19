@@ -9,20 +9,108 @@
   <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script>
+
+
+
+  function audio () {
+      if ('speechSynthesis' in window) with (speechSynthesis) {
+
+        var playEle = document.querySelector('#play');
+        var pauseEle = document.querySelector('#pause');
+        var stopEle = document.querySelector('#stop');
+        var flag = false;
+
+        playEle.addEventListener('click', onClickPlay);
+    
+
+        function onClickPlay() {
+
+          if (!flag) {
+            flag = true;
+            utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
+            utterance.voice = getVoices()[0];
+            utterance.onend = function () {
+              flag = false;
+              playEle.className = pauseEle.className = '';
+              stopEle.className = 'stopped';
+            };
+            playEle.className = 'played';
+            stopEle.className = '';
+            speak(utterance);
+          }
+          if (paused) { /* unpause/resume narration */
+            playEle.className = 'played';
+            pauseEle.className = '';
+            resume();
+          }
+        }
+
+        function onClickPlay() {
+
+          if (!flag) {
+            flag = true;
+            utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
+            utterance.voice = getVoices()[0];
+            utterance.onend = function () {
+              flag = false;
+              playEle.className = pauseEle.className = '';
+              stopEle.className = 'stopped';
+            };
+            playEle.className = 'played';
+            stopEle.className = '';
+            speak(utterance);
+          }
+          if (paused) { /* unpause/resume narration */
+            playEle.className = 'played';
+            pauseEle.className = '';
+            resume();
+          }
+        }
+
+
+
+      }
+
+      else { /* speech synthesis not supported */
+        msg = document.createElement('h5');
+        msg.textContent = "Detected no support for Speech Synthesis";
+        msg.style.textAlign = 'center';
+        msg.style.backgroundColor = 'red';
+        msg.style.color = 'white';
+        msg.style.marginTop = msg.style.marginBottom = 0;
+        document.body.insertBefore(msg, document.querySelector('div'));
+      }
+
+    }
+  </script>
 </head>
 
-<body>
+<body onload="audio()">
 
   <div>
     <img>
 
   </div>
 
+  <article id="text-speech">
+
+  </article>
+
+
 
   <div class="shade cursor1">
 
-      <div class="modal fade" id="exampleModalLong-cards" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-      aria-hidden="true">
+
+      <div class=buttons style="display:none">
+          <button id=play></button> &nbsp;
+          <button id=pause></button> &nbsp;
+          <button id=stop></button>
+        </div>
+
+    <div class="modal fade" id="exampleModalLong-cards" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content" style="background:black">
           <div class="modal-header">
@@ -34,42 +122,41 @@
 
           <div class="container-photo">
 
-             <div class="placa-one">
-                <div id="placa-one-one">
-                  </div>
+            <div class="placa-one">
+              <div id="placa-one-one">
+              </div>
 
-                  <div id="placa-one-one-porcent">
-                    </div>
-
-
-             </div>
-
-             <div class="placa-two">
-                <div id="placa-two-two">
-                  </div>
-
-                  <div id="placa-two-two-porcent">
-                    </div>
-
+              <div id="placa-one-one-porcent">
               </div>
 
 
-              <div class="placa-three">
-                  <div id="placa-three-three">
-                    </div>
-                    <div id="placa-three-three-porcent">
-                      </div>
-                </div>
+            </div>
+
+            <div class="placa-two">
+              <div id="placa-two-two">
+              </div>
+
+              <div id="placa-two-two-porcent">
+              </div>
 
             </div>
+
+
+            <div class="placa-three">
+              <div id="placa-three-three">
+              </div>
+              <div id="placa-three-three-porcent">
+              </div>
+            </div>
+
           </div>
-
         </div>
+
       </div>
-  
+    </div>
 
 
-
+   
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -121,20 +208,23 @@
     <div class="painel-help">
 
       <div class="qtd-help" id="qtd-help">você usou 0/3 ajuda(s)</div>
-      </div>
+    </div>
     <div class="help">
 
 
       <div class="help-one" id="help-1" onClick="half(this)">50:50</div>
 
-     <a href="#exampleModalLong-cards" style="text-decoration: none;color: white" data-toggle="modal"
-        data-target="#exampleModalLong-cards" >
-        <div class="help-two"  id="help-2" onClick="half(this)" >Placas</div></a>
+      <a href="#exampleModalLong-cards" style="text-decoration: none;color: white" data-toggle="modal"
+        data-target="#exampleModalLong-cards">
+        <div class="help-two" id="help-2" onClick="half(this)">Placas</div>
+      </a>
 
 
 
-         <a href="#exampleModalLong" style="text-decoration: none;color: white" data-toggle="modal"
-          data-target="#exampleModalLong"> <div class="help-three" id="help-3" onClick="half(this)">TAs & Teacher</div></a>
+      <a href="#exampleModalLong" style="text-decoration: none;color: white" data-toggle="modal"
+        data-target="#exampleModalLong">
+        <div class="help-three" id="help-3" onClick="half(this)">TAs & Teacher</div>
+      </a>
 
 
 
