@@ -1,12 +1,14 @@
 var quiz = new Quiz();
 var ranking = new Ranking();
-
-
 quiz.shuffleOption()
 quiz.renderQuestion()
 quiz.probability()
 quiz.desafio();
 setIntervalGame();
+
+
+
+var statusAudio = false;
 
 
 
@@ -25,33 +27,43 @@ function setIntervalGame() {
     quiz.setMilliseconds()
     quiz.setSeconds()
 
-    if (quiz.second >= 15 ) {
+    if (quiz.second >= 15) {
 
-     document.getElementById("secDec").setAttribute("class", "number time-alert")
-     document.getElementById("secUni").setAttribute("class", "number1 time-alert")
-     document.getElementById("milDec").setAttribute("class", "number time-alert")
-     document.getElementById("milUni").setAttribute("class", "number time-alert")
-     
+      document.getElementById("secDec").setAttribute("class", "number time-alert")
+      document.getElementById("secUni").setAttribute("class", "number1 time-alert")
+      document.getElementById("milDec").setAttribute("class", "number time-alert")
+      document.getElementById("milUni").setAttribute("class", "number time-alert")
+
+
     }
 
 
-    if (quiz.second >= 25 ) {
+    if (quiz.second >= 25) {
 
       document.getElementById("secDec").setAttribute("class", "number time-alert-red")
       document.getElementById("secUni").setAttribute("class", "number1 time-alert-red")
       document.getElementById("milDec").setAttribute("class", "number time-alert-red")
       document.getElementById("milUni").setAttribute("class", "number time-alert-red")
-      
-     }
+
+
+
+    }
 
     if (quiz.second >= 30) {
+
+      setTimeout(() => {
+
+        document.getElementById('text-speech').innerHTML = "seu tempo acabou meu jovem, tente novamente";
+        document.getElementById("play").click()
+
+      }, 400)
 
 
       quiz.stopClick(quiz.intervalId)
 
       setTimeout(() => {
         window.location.href = `gameover.html?player=Payer1&pontos=${quiz.countResponseTrue}&time=${hour},${minutes},${second}`
-      }, 700)
+      }, 2000)
 
     }
 
@@ -161,7 +173,15 @@ function validar(event, text) {
   var textOption = text.getAttribute("value")
 
 
+
+
+
+
   if (quiz.checkResponse(textOption, t)) {
+
+    document.getElementById('text-speech').innerHTML = "Certa resposta";
+    document.getElementById("play").click()
+
 
     disableOtherOption(quiz.idFiel, 'main')
     quiz.stopClick(this.intervalId)
@@ -178,7 +198,7 @@ function validar(event, text) {
 
 
 
-
+    document.getElementById("play").click()
     quiz.stopClick(quiz.intervalId)
 
     t.setAttribute("class", "answer-false")
@@ -198,7 +218,7 @@ function validar(event, text) {
     disableOtherOption(quiz.idFiel, 'constructor')
     setTimeout(() => {
       window.location.href = `gameover.html?player=Payer1&pontos=${quiz.countResponseTrue}&time=${hour},${minutes},${second}`
-    }, 1000)
+    }, 4000)
 
 
 

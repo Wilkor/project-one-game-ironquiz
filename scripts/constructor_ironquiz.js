@@ -6,12 +6,15 @@ var Quiz = function (name) {
     this.countResponseTrue = 0;
     this.newListQuestion = [];
     this.idField = '',
-    this.milliseconds = 0;
+        this.milliseconds = 0;
     this.second = 0;
     this.currentTime = 0;
     this.intervalId = 0;
     this.status = true;
     this.qtdHelp = 0;
+    this.statusVoz = false;
+    this.countVoz = 0;
+    this.nivelQueston = 0;
 
 
 
@@ -42,19 +45,21 @@ Quiz.prototype.shuffle = function () {
 Quiz.prototype.shuffleOption = function (element) {
 
 
-    if (this.countResponseTrue < 10) {
+    if (this.countResponseTrue < 40) {
 
         arrayNivel = this.nivelOne;
 
-    } else if (this.countResponseTrue > 10 || this.countResponseTrue < 50) {
+    } else if (this.countResponseTrue > 40 || this.countResponseTrue < 100) {
 
-
-
+        this.nivelQueston = 2
         arrayNivel = this.nivelTwo;
+        this.nivelQueston = 0
 
-    } else if (this.countResponseTrue > 50) {
+    } else if (this.countResponseTrue >= 100) {
+        this.nivelQueston = 3;
 
         arrayNivel = this.nivelThree;
+        this.nivelQueston = 0
     }
 
 
@@ -159,6 +164,9 @@ Quiz.prototype.twoDigitsNumber = function (number) {
 
 Quiz.prototype.checkConditionalElse = function (optionId) {
 
+
+    console.log(optionId)
+
     var doc = document.getElementById('list-options').children
 
     if (optionId) {
@@ -182,10 +190,12 @@ Quiz.prototype.checkConditionalElse = function (optionId) {
     } else {
 
 
-        for (let index = 0; index < doc.length - 1; index++) {
+        for (let index = 0; index < doc.length; index++) {
             const element = doc[index].textContent;
 
             var response = element
+
+            console.log(response.split(" ")[1])
 
             if (this.checkResponse(response.split(" ")[1], 'check-true')) {
 
@@ -213,17 +223,18 @@ Quiz.prototype.checkResponse = function (filter, event) {
 
 
 
-    if (this.countResponseTrue < 10) {
+
+    if (this.countResponseTrue < 40) {
 
         arrayNivel = this.nivelOne;
 
-    } else if (this.countResponseTrue > 10 || this.countResponseTrue < 50) {
+    } else if (this.countResponseTrue > 40 || this.countResponseTrue < 100) {
 
 
 
         arrayNivel = this.nivelTwo;
 
-    } else if (this.countResponseTrue > 50) {
+    } else if (this.countResponseTrue >= 100) {
 
         arrayNivel = this.nivelThree;
     }
@@ -237,13 +248,18 @@ Quiz.prototype.checkResponse = function (filter, event) {
                 arOp.push(items)
                 if (items.titleOpitons == filter) {
                     if (items.responseOptions) {
+
+
+
                         element.statusQuestion = false
                         database.countResponseTrue = event != 'check-true' ? this.countResponseTrue += 10 : this.countResponseTrue;
                         pointsGame.innerHTML = database.countResponseTrue
                         arrayNivel.shift()
+                        document.getElementById('text-speech').innerHTML = "Certa resposta";
                         result = true
                     } else {
 
+                        document.getElementById('text-speech').innerHTML = "você errou kkkkk patutupa tupa";
                         result = false
 
                     }
@@ -293,6 +309,16 @@ Quiz.prototype.finishGame = function () {
 Quiz.prototype.renderQuestion = function () {
 
 
+
+    if (this.statusVoz == false && this.countVoz == 0) {
+    
+        document.getElementById('text-speech').innerHTML = "Parabens, você esá no nivel" + quiz.nivelQueston;
+        document.getElementById("play").click();
+
+        quiz.countVoz++;
+
+      }
+    
     this.shuffleOption()
 
     var str = '';
@@ -302,20 +328,21 @@ Quiz.prototype.renderQuestion = function () {
     var filter = 0;
 
 
-    if (this.countResponseTrue < 10) {
+
+    if (this.countResponseTrue < 40) {
 
         arrayNivel = this.nivelOne;
 
-    } else if (this.countResponseTrue >= 10 || this.countResponseTrue <= 50) {
-
+    } else if (this.countResponseTrue > 40 || this.countResponseTrue < 100) {
 
 
         arrayNivel = this.nivelTwo;
 
-    } else if (this.countResponseTrue > 50) {
+    } else if (this.countResponseTrue >= 100) {
 
         arrayNivel = this.nivelThree;
     }
+
 
 
 
@@ -500,7 +527,6 @@ var getRandomItem = function (list, weight) {
 
 
 };
-
 
 
 
