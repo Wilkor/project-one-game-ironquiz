@@ -255,11 +255,11 @@ Quiz.prototype.checkResponse = function (filter, event) {
                         database.countResponseTrue = event != 'check-true' ? this.countResponseTrue += 10 : this.countResponseTrue;
                         pointsGame.innerHTML = database.countResponseTrue
                         arrayNivel.shift()
-                        document.getElementById('text-speech').innerHTML = "Certa resposta";
+                        document.getElementById('text-speech').innerHTML = this.randonMessages(database.msgSuccess)
                         result = true
                     } else {
 
-                        document.getElementById('text-speech').innerHTML = "você errou kkkkk patutupa tupa";
+                        document.getElementById('text-speech').innerHTML = this.randonMessages(database.msgError)
                         result = false
 
                     }
@@ -296,6 +296,16 @@ Quiz.prototype.returnSortOption = function () {
 
 
     return p
+}
+
+
+Quiz.prototype.randonMessages= function (array) {
+
+
+    let index = Math.floor(Math.random() * array.length);
+
+
+    return array[index]
 }
 
 Quiz.prototype.finishGame = function () {
