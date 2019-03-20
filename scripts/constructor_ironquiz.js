@@ -17,7 +17,7 @@ var Quiz = function (name) {
     this.nivelQueston = 0;
     this.hour = 0;
     this.minutes = 0;
-    this.seconds =0;
+    this.seconds = 0;
 
 
 
@@ -90,8 +90,8 @@ Quiz.prototype.resetClick = function () {
 
     secDec.innerHTML = "0"
     secUni.innerHTML = "0"
-   // milDec.innerHTML = "0"
-  //  milUni.innerHTML = "0"
+    // milDec.innerHTML = "0"
+    //  milUni.innerHTML = "0"
 
 };
 
@@ -109,11 +109,11 @@ Quiz.prototype.setMilliseconds = function () {
 
         if (this.milliseconds >= 10) {
 
-           // milDec.style.display = "none"
+            // milDec.style.display = "none"
 
         }
 
-      //  milUni.innerHTML = this.milliseconds;
+        //  milUni.innerHTML = this.milliseconds;
     }
 
     if (this.milliseconds == 99) {
@@ -134,7 +134,7 @@ Quiz.prototype.setSeconds = function () {
         this.second++;
 
 
-        if (this.second >= 10) {
+        if (this.second < 10) {
 
             var splitS = this.twoDigitsNumber(this.second)
             secDec.innerHTML = splitS[0]
@@ -245,7 +245,7 @@ Quiz.prototype.checkResponse = function (filter, event) {
         if (arrayNivel.indexOf(element) == 0) {
 
             element.options.forEach(items => {
-      
+
                 if (items.titleOpitons == filter) {
 
                     if (items.responseOptions) {
@@ -254,9 +254,9 @@ Quiz.prototype.checkResponse = function (filter, event) {
                         if (event != 'check-true') {
 
 
-                            console.log("entrei aqui",event)
+                            console.log("entrei aqui", event)
                             database.countResponseTrue = this.countResponseTrue += 10;
-                            console.log("pontos",this.countResponseTrue)
+                            console.log("pontos", this.countResponseTrue)
                         } else {
 
                             database.countResponseTrue = this.countResponseTrue;
@@ -330,17 +330,17 @@ Quiz.prototype.renderQuestion = function () {
     if (this.countResponseTrue > 70) {
 
         document.getElementById("text-speech").innerHTML = this.randonMessages(database.msgFinish)
-      
 
-        setTimeout(()=>{
+
+        setTimeout(() => {
 
             document.getElementById("play").click()
-            
-        },2000)
-        
+
+        }, 2000)
 
 
-            window.location.href = `finish.html?player=Payer1&pontos=${this.countResponseTrue}&time=${this.hour},${this.minutes},${this.seconds}`
+
+        window.location.href = `finish.html?player=Payer1&pontos=${this.countResponseTrue}&time=${this.hour},${this.minutes},${this.seconds}`
 
     }
 

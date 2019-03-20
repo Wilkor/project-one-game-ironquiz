@@ -67,6 +67,25 @@ ul li input[type=radio]{
 
 }
 
+@media screen and (min-width: 300px) and (max-width: 500px) {
+.container-center-question{
+ 
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  margin-top: -48px;
+  vertical-align: middle;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.0em;
+  color: rgba(238, 238, 238, 0.7);
+  margin-top: -60px;
+ 
+
+
+}
+
+}
+
 .container-center-options{
 
     margin-top: -50px;
@@ -371,6 +390,17 @@ ul li input[type=radio]{
 }
 
 
+@media screen and (min-width: 300px) and (max-width: 500px) {
+
+#list-options{
+ 
+  margin-top:60px;
+  margin-left: -40px;
+}
+
+
+}
+
 #clock {
   border: 2px solid #000;
   border-radius: 20px;
@@ -534,7 +564,7 @@ ul li input[type=radio]{
   .blackboard {
   
     position: relative;
-    width: 394px;
+    width: 350px;
     margin: 7% auto;
     border: tan solid 12px;
     border-top: #bda27e solid 12px;
@@ -543,7 +573,7 @@ ul li input[type=radio]{
     box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
     background-image: radial-gradient( circle at left 30%, rgba(34, 34, 34, 0.3), rgba(34, 34, 34, 0.3) 80px, rgba(34, 34, 34, 0.5) 100px, rgba(51, 51, 51, 0.5) 160px, rgba(51, 51, 51, 0.5)), linear-gradient( 215deg, transparent, transparent 100px, #222 260px, #222 320px, transparent), radial-gradient( circle at right, #111, rgba(51, 51, 51, 1));
     background-color: #333;
-    margin-top: -240px;
+    margin-top: -250px;
   }
   
   
@@ -730,7 +760,7 @@ input[type="submit"]:focus {
 @media screen and (min-width: 300px) and (max-width: 500px) {
   .blackboard-game-over {
     position: relative;
-    width: 394px;
+    width: 350px;
     margin: 7% auto;
     border: tan solid 12px;
     border-top: #bda27e solid 12px;
@@ -831,7 +861,7 @@ input[type="submit"]:focus {
     flex-wrap: wrap;
     background: url('../img/panel.png') 0 0 no-repeat;
     background-size:100%;
-    margin-left:0px;
+    margin-left:22px;
 
     
   
@@ -854,6 +884,26 @@ input[type="submit"]:focus {
     margin-left: 10px;
 
     
+  }
+
+  
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+
+    .help{
+
+
+      margin-top:40px;  
+      border-radius: 5px;
+      width:18%;
+      height: 30%;
+      flex-wrap: wrap;
+      background: url('../img/panel.pn') 0 0 no-repeat;
+      background-size:100%;
+      margin-left: 10px;
+  
+      
+    }
+
   }
 
 
@@ -924,7 +974,7 @@ input[type="submit"]:focus {
       color:white;
       background: red;
       font-size: 12px;
-      margin-top: 870px;
+      margin-top: 797px;
       margin-left: -2px;
       
    
@@ -1138,6 +1188,177 @@ input[type="submit"]:focus {
      
    }
 
+
+
+   @media screen and (min-width: 300px) and (max-width: 500px) {
+
+
+    #coe{
+
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      float: left;
+      transition: 0.3s ease;
+      background: url('../img/coe.jpg') 0 0 no-repeat;
+      background-size: 100%;
+      overflow: hidden;
+    
+      }
+    
+      #gabriel{
+    
+        width: 60px;
+      height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        float: left;
+    
+        transition: 0.3s ease;
+        background: url('../img/gabriel.jpg') 0 0 no-repeat;
+        background-size: 100%;
+      }
+    
+    
+      #romulo{
+    
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+     
+        transition: 0.3s ease;
+        background: url('../img/romulo.jpg') 0 0 no-repeat;
+        background-size: 100%;
+    
+    
+      }
+      .container-photo{
+    
+        display: flex;
+        margin-left: 0px;
+      }
+    
+      .options-tas-coe{
+    
+    
+        background: red;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        color: white;
+        float: left;
+        margin-left:10px;
+        position: relative;
+        left:70px
+      
+    
+    
+    
+    
+    
+      }
+    
+      .options-tas-gabriel{
+      
+     
+        background: red;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        color: white;
+        float: left;
+        position: relative;
+        left:70px
+      
+     
+    
+      }
+    
+      .options-tas-romulo{
+    
+        background: red;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        color: white;
+        float: left;
+        position: relative;
+        left:70px
+      
+    
+       
+        
+      }
+    
+    
+    
+    
+      .options-tas-coe-porcent{
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: auto;
+        background:green;
+         width: 35px;
+         height:35px;
+         border-radius: 50%;
+         color: white;
+         float: left;
+         margin-left:10px;
+         position: relative;
+         left:-77px;
+         top: 40px
+       
+     
+     
+     
+     
+     
+       }
+     
+       .options-tas-gabriel-porcent{
+       
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background:green;
+         width: 35px;
+         height:35px;
+         border-radius: 50%;
+         color: white;
+         float: left;
+         position: relative;
+         left:-68px;
+         top:40px
+       
+      
+     
+       }
+     
+       .options-tas-romulo-porcent{
+     
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background:green;
+         width: 35px;
+         height:35px;
+         border-radius: 50%;
+         color: white;
+         float: left;
+         position: relative;
+         left:270px;
+         top:-20px
+       
+     
+        
+         
+       }
+
+   }
 
    .placa-one{
 
