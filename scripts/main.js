@@ -1,5 +1,8 @@
 var quiz = new Quiz();
 var ranking = new Ranking();
+
+
+
 quiz.shuffleOption()
 quiz.renderQuestion()
 quiz.probability()
@@ -18,6 +21,9 @@ var hour = data.getHours();
 var minutes = data.getMinutes();
 var second = data.getSeconds();
 
+ quiz.hour = hour;
+ quiz.minutes =minutes;
+ quiz.seconds = second;
 
 
 function setIntervalGame() {
@@ -31,8 +37,8 @@ function setIntervalGame() {
 
       document.getElementById("secDec").setAttribute("class", "number time-alert")
       document.getElementById("secUni").setAttribute("class", "number1 time-alert")
-      document.getElementById("milDec").setAttribute("class", "number time-alert")
-      document.getElementById("milUni").setAttribute("class", "number time-alert")
+     // document.getElementById("milDec").setAttribute("class", "number time-alert")
+     // document.getElementById("milUni").setAttribute("class", "number time-alert")
 
 
     }
@@ -42,8 +48,8 @@ function setIntervalGame() {
 
       document.getElementById("secDec").setAttribute("class", "number time-alert-red")
       document.getElementById("secUni").setAttribute("class", "number1 time-alert-red")
-      document.getElementById("milDec").setAttribute("class", "number time-alert-red")
-      document.getElementById("milUni").setAttribute("class", "number time-alert-red")
+     // document.getElementById("milDec").setAttribute("class", "number time-alert-red")
+     // document.getElementById("milUni").setAttribute("class", "number time-alert-red")
 
 
 

@@ -74,6 +74,17 @@ ul li input[type=radio]{
     justify-content: center;
    }
 
+   @media screen and (min-width: 300px) and (max-width: 500px) {
+   .container-center-options{
+
+    margin-top: -50px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+   }
+
+  }
+
 #title-question{
 
     display: flex;
@@ -180,7 +191,7 @@ ul li input[type=radio]{
 
   margin-top: 9px;
   width: 250px;
-  margin-left: 33px;
+  margin-left: 39px;
 }
 
 
@@ -206,7 +217,7 @@ ul li input[type=radio]{
   border-radius: 50px;
   margin-top: 9px;
   width: 250px;
-  margin-left: 33px;
+  margin-left: 39px;
 }
 
 .answer-false{
@@ -230,6 +241,22 @@ ul li input[type=radio]{
   background: url('../img/question.gif') 0 0 no-repeat;
   background-size: 30%;
  
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+
+  .logo-game-game{
+
+    margin-left:228px;
+    background: url('../img/question.gif') 0 0 no-repeat;
+    background-size: 200px;
+    margin-top:-90px;
+   
+  }
+  
+  
+
 }
 
 .container-logo .logo-game{
@@ -473,6 +500,20 @@ ul li input[type=radio]{
   background-image: linear-gradient( 150deg, rgba(0, 0, 0, 0.65), transparent);
 }
 
+.shade-game-finish {
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient( 150deg, rgba(0, 0, 0, 0.65), transparent);
+}
+
+
+
+
+
 .blackboard {
   position: relative;
   width: 640px;
@@ -485,6 +526,28 @@ ul li input[type=radio]{
   background-image: radial-gradient( circle at left 30%, rgba(34, 34, 34, 0.3), rgba(34, 34, 34, 0.3) 80px, rgba(34, 34, 34, 0.5) 100px, rgba(51, 51, 51, 0.5) 160px, rgba(51, 51, 51, 0.5)), linear-gradient( 215deg, transparent, transparent 100px, #222 260px, #222 320px, transparent), radial-gradient( circle at right, #111, rgba(51, 51, 51, 1));
   background-color: #333;
   margin-top: -210px;
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+
+  .blackboard {
+  
+    position: relative;
+    width: 394px;
+    margin: 7% auto;
+    border: tan solid 12px;
+    border-top: #bda27e solid 12px;
+    border-left: #b19876 solid 12px;
+    border-bottom: #c9ad86 solid 12px;
+    box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+    background-image: radial-gradient( circle at left 30%, rgba(34, 34, 34, 0.3), rgba(34, 34, 34, 0.3) 80px, rgba(34, 34, 34, 0.5) 100px, rgba(51, 51, 51, 0.5) 160px, rgba(51, 51, 51, 0.5)), linear-gradient( 215deg, transparent, transparent 100px, #222 260px, #222 320px, transparent), radial-gradient( circle at right, #111, rgba(51, 51, 51, 1));
+    background-color: #333;
+    margin-top: -240px;
+  }
+  
+  
+
 }
 
 
@@ -569,6 +632,69 @@ input[type="submit"]:focus {
   text-shadow: none;
 }
 
+
+.game-finish-blackboard{
+
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  margin-top: -10px;
+  vertical-align: middle;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.0em;
+  color: rgba(238, 238, 238, 0.7);
+  margin-top: 100px;
+  height: 150px;
+
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+.game-finish-blackboard{
+
+  width: 394px;
+  margin-top: -10px;
+  vertical-align: middle;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.0em;
+  color: rgba(238, 238, 238, 0.7);
+  margin-top: 100px;
+  height: 150px;
+
+}
+
+}
+
+.blackboard-game-finish {
+  position: relative;
+  width: 640px;
+  margin: 7% auto;
+  border: tan solid 12px;
+  border-top: #bda27e solid 12px;
+  border-left: #b19876 solid 12px;
+  border-bottom: #c9ad86 solid 12px;
+  box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+  background-image: radial-gradient( circle at left 30%, rgba(34, 34, 34, 0.3), rgba(34, 34, 34, 0.3) 80px, rgba(34, 34, 34, 0.5) 100px, rgba(51, 51, 51, 0.5) 160px, rgba(51, 51, 51, 0.5)), linear-gradient( 215deg, transparent, transparent 100px, #222 260px, #222 320px, transparent), radial-gradient( circle at right, #111, rgba(51, 51, 51, 1));
+  background-color: #333;
+}
+
+
+.blackboard-game-finish:before {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  background-image: linear-gradient( 175deg, transparent, transparent 40px, rgba(120, 120, 120, 0.1) 100px, rgba(120, 120, 120, 0.1) 110px, transparent 220px, transparent), linear-gradient( 200deg, transparent 80%, rgba(50, 50, 50, 0.3)), radial-gradient( ellipse at right bottom, transparent, transparent 200px, rgba(80, 80, 80, 0.1) 260px, rgba(80, 80, 80, 0.1) 320px, transparent 400px, transparent);
+  border: #2c2c2c solid 2px;
+  content: "Parabéns você ganhou!";
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.2em;
+  color: rgba(238, 238, 238, 0.7);
+  text-align: center;
+  padding-top: 20px;
+}
+
+
 .game-over-blackboard{
 
   display: flex;
@@ -583,6 +709,8 @@ input[type="submit"]:focus {
   height: 150px;
 
 }
+
+
 .blackboard-game-over {
   position: relative;
   width: 640px;
@@ -594,6 +722,25 @@ input[type="submit"]:focus {
   box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
   background-image: radial-gradient( circle at left 30%, rgba(34, 34, 34, 0.3), rgba(34, 34, 34, 0.3) 80px, rgba(34, 34, 34, 0.5) 100px, rgba(51, 51, 51, 0.5) 160px, rgba(51, 51, 51, 0.5)), linear-gradient( 215deg, transparent, transparent 100px, #222 260px, #222 320px, transparent), radial-gradient( circle at right, #111, rgba(51, 51, 51, 1));
   background-color: #333;
+}
+
+
+
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .blackboard-game-over {
+    position: relative;
+    width: 394px;
+    margin: 7% auto;
+    border: tan solid 12px;
+    border-top: #bda27e solid 12px;
+    border-left: #b19876 solid 12px;
+    border-bottom: #c9ad86 solid 12px;
+    box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+    background-image: radial-gradient( circle at left 30%, rgba(34, 34, 34, 0.3), rgba(34, 34, 34, 0.3) 80px, rgba(34, 34, 34, 0.5) 100px, rgba(51, 51, 51, 0.5) 160px, rgba(51, 51, 51, 0.5)), linear-gradient( 215deg, transparent, transparent 100px, #222 260px, #222 320px, transparent), radial-gradient( circle at right, #111, rgba(51, 51, 51, 1));
+    background-color: #333;
+  }
+
 }
 
 .blackboard-game-over:before {
@@ -642,6 +789,19 @@ input[type="submit"]:focus {
 
   }
 
+
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+  .qtd-help{
+
+   
+    margin: 5px;
+    border-radius: 5px;
+    color:white;
+
+
+  }
+
+  }
   .painel-help{
 
       display: flex;
@@ -658,6 +818,25 @@ input[type="submit"]:focus {
   
       
     
+  }
+
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+  .painel-help{
+
+
+    margin-top:-6px;  
+    border-radius: 5px;
+    width:60%;
+    height:5%;
+    flex-wrap: wrap;
+    background: url('../img/panel.png') 0 0 no-repeat;
+    background-size:100%;
+    margin-left:0px;
+
+    
+  
+}
+
   }
 
   .help{
@@ -677,6 +856,8 @@ input[type="submit"]:focus {
     
   }
 
+
+
   .help .help-one{
 
     display: flex;
@@ -693,6 +874,8 @@ input[type="submit"]:focus {
  
 
   }
+
+
 
 
   .help .help-two{
@@ -726,6 +909,60 @@ input[type="submit"]:focus {
     margin-top:0px
  
 
+  }
+
+
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+
+    .help .help-one{
+
+   
+      margin: 5px;
+      border-radius: 5px;
+      width: 300px;
+      height: 70px;
+      color:white;
+      background: red;
+      font-size: 12px;
+      margin-top: 870px;
+      margin-left: -2px;
+      
+   
+  
+    }
+
+    .help .help-two{
+
+   
+      margin: 5px;
+      border-radius: 5px;
+      width: 219px;
+      height: 70px;
+      color:white;
+      background: purple;
+      font-size: 12px;
+      margin-top:-74px;
+      margin-left:314px;
+  
+    }
+
+    .help .help-three{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 5px;
+      border-radius: 5px;
+      width: 80px;
+      height: 69px;
+      color:white;
+      font-size: 12px;
+      background: #32c5ff;
+      margin-top:-74px;
+      margin-left:640px
+   
+  
+    }
   }
 
   #coe{
