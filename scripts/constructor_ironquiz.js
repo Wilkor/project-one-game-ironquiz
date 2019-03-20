@@ -15,6 +15,9 @@ var Quiz = function (name) {
     this.statusVoz = false;
     this.countVoz = 0;
     this.nivelQueston = 0;
+    this.hour = 0;
+    this.minutes = 0;
+    this.seconds =0;
 
 
 
@@ -87,8 +90,8 @@ Quiz.prototype.resetClick = function () {
 
     secDec.innerHTML = "0"
     secUni.innerHTML = "0"
-    milDec.innerHTML = "0"
-    milUni.innerHTML = "0"
+   // milDec.innerHTML = "0"
+  //  milUni.innerHTML = "0"
 
 };
 
@@ -106,11 +109,11 @@ Quiz.prototype.setMilliseconds = function () {
 
         if (this.milliseconds >= 10) {
 
-            milDec.style.display = "none"
+           // milDec.style.display = "none"
 
         }
 
-        milUni.innerHTML = this.milliseconds;
+      //  milUni.innerHTML = this.milliseconds;
     }
 
     if (this.milliseconds == 99) {
@@ -217,11 +220,8 @@ Quiz.prototype.checkConditionalElse = function (optionId) {
 Quiz.prototype.checkResponse = function (filter, event) {
 
     var result = true
-    var arOp = []
-    var ranking = new Ranking();
+
     var arrayNivel = [];
-
-
 
 
     if (this.countResponseTrue < 40) {
@@ -245,18 +245,32 @@ Quiz.prototype.checkResponse = function (filter, event) {
         if (arrayNivel.indexOf(element) == 0) {
 
             element.options.forEach(items => {
-                arOp.push(items)
+      
                 if (items.titleOpitons == filter) {
+
                     if (items.responseOptions) {
 
 
+                        if (event != 'check-true') {
 
-                        element.statusQuestion = false
-                        database.countResponseTrue = event != 'check-true' ? this.countResponseTrue += 10 : this.countResponseTrue;
+
+                            console.log("entrei aqui",event)
+                            database.countResponseTrue = this.countResponseTrue += 10;
+                            console.log("pontos",this.countResponseTrue)
+                        } else {
+
+                            database.countResponseTrue = this.countResponseTrue;
+
+                        }
+
+                        // database.countResponseTrue = event != 'check-true' ? this.countResponseTrue += 10 : this.countResponseTrue;
                         pointsGame.innerHTML = database.countResponseTrue
                         arrayNivel.shift()
                         document.getElementById('text-speech').innerHTML = this.randonMessages(database.msgSuccess)
                         result = true
+                        element.statusQuestion = false
+
+
                     } else {
 
                         document.getElementById('text-speech').innerHTML = this.randonMessages(database.msgError)
@@ -299,7 +313,7 @@ Quiz.prototype.returnSortOption = function () {
 }
 
 
-Quiz.prototype.randonMessages= function (array) {
+Quiz.prototype.randonMessages = function (array) {
 
 
     let index = Math.floor(Math.random() * array.length);
@@ -308,27 +322,37 @@ Quiz.prototype.randonMessages= function (array) {
     return array[index]
 }
 
-Quiz.prototype.finishGame = function () {
-
-    var r = new Ranking()
-    var p = new Player()
-    r.ranking.push(p.getNickName(), p.score())
-
-}
 
 Quiz.prototype.renderQuestion = function () {
 
 
 
+    if (this.countResponseTrue > 70) {
+
+        document.getElementById("text-speech").innerHTML = this.randonMessages(database.msgFinish)
+      
+
+        setTimeout(()=>{
+
+            document.getElementById("play").click()
+            
+        },2000)
+        
+
+
+            window.location.href = `finish.html?player=Payer1&pontos=${this.countResponseTrue}&time=${this.hour},${this.minutes},${this.seconds}`
+
+    }
+
     if (this.statusVoz == false && this.countVoz == 0) {
-    
-        document.getElementById('text-speech').innerHTML = "Parabens, você esá no nivel" + quiz.nivelQueston;
+
+        document.getElementById('text-speech').innerHTML = "Parabens, você esá no nivel: " + quiz.nivelQueston;
         document.getElementById("play").click();
 
         quiz.countVoz++;
 
-      }
-    
+    }
+
     this.shuffleOption()
 
     var str = '';
@@ -347,10 +371,11 @@ Quiz.prototype.renderQuestion = function () {
 
 
         arrayNivel = this.nivelTwo;
-
+        this.countVoz++
     } else if (this.countResponseTrue >= 100) {
 
         arrayNivel = this.nivelThree;
+        this.countVoz++
     }
 
 
