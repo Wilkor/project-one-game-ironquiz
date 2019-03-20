@@ -190,6 +190,8 @@ function validar(event, text) {
 
     disableOtherOption(quiz.idFiel, 'main')
     quiz.stopClick(this.intervalId)
+    document.getElementById("secDec").setAttribute("class", "number")
+    document.getElementById("secUni").setAttribute("class", "number1")
 
     setTimeout(function () {
 
