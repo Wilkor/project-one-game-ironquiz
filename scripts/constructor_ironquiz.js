@@ -89,7 +89,7 @@ Quiz.prototype.resetClick = function () {
 
     this.second = 0;
 
-    secDec.innerHTML = "0"
+   // secDec.innerHTML = "0"
     secUni.innerHTML = "0"
     // milDec.innerHTML = "0"
     //  milUni.innerHTML = "0"
@@ -134,13 +134,13 @@ Quiz.prototype.setSeconds = function () {
     if (this.milliseconds == 0) {
         this.second++;
 
-        if (this.second <= 10) {
+        if (this.second < 10) {
 
             var splitS = this.twoDigitsNumber(this.second)
-            secDec.innerHTML = splitS[0]
-            secUni.innerHTML = splitS[1]
+            //secDec.innerHTML = splitS[0]
+            secUni.innerHTML = "0"+splitS[1]
         } else {
-            secDec.innerHTML = "0"
+            //secDec.innerHTML = "0"
             secUni.innerHTML = this.second;
         }
 
