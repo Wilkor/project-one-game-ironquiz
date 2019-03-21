@@ -33,45 +33,45 @@ function setIntervalGame() {
     quiz.setMilliseconds()
     quiz.setSeconds()
 
-    if (quiz.second >= 15) {
+    // if (quiz.second >= 15) {
 
-      document.getElementById("secDec").setAttribute("class", "number time-alert")
-      document.getElementById("secUni").setAttribute("class", "number1 time-alert")
-     // document.getElementById("milDec").setAttribute("class", "number time-alert")
-     // document.getElementById("milUni").setAttribute("class", "number time-alert")
-
-
-    }
+    //   document.getElementById("secDec").setAttribute("class", "number time-alert")
+    //   document.getElementById("secUni").setAttribute("class", "number1 time-alert")
+    //  // document.getElementById("milDec").setAttribute("class", "number time-alert")
+    //  // document.getElementById("milUni").setAttribute("class", "number time-alert")
 
 
-    if (quiz.second >= 25) {
-
-      document.getElementById("secDec").setAttribute("class", "number time-alert-red")
-      document.getElementById("secUni").setAttribute("class", "number1 time-alert-red")
-     // document.getElementById("milDec").setAttribute("class", "number time-alert-red")
-     // document.getElementById("milUni").setAttribute("class", "number time-alert-red")
+    // }
 
 
+    // if (quiz.second >= 25) {
 
-    }
-
-    if (quiz.second >= 30) {
-
-      setTimeout(() => {
-
-        document.getElementById('text-speech').innerHTML = "seu tempo acabou meu jovem, tente novamente";
-        document.getElementById("play").click()
-
-      }, 400)
+    //   document.getElementById("secDec").setAttribute("class", "number time-alert-red")
+    //   document.getElementById("secUni").setAttribute("class", "number1 time-alert-red")
+    //  // document.getElementById("milDec").setAttribute("class", "number time-alert-red")
+    //  // document.getElementById("milUni").setAttribute("class", "number time-alert-red")
 
 
-      quiz.stopClick(quiz.intervalId)
 
-      setTimeout(() => {
-        window.location.href = `gameover.html?player=Payer1&pontos=${quiz.countResponseTrue}&time=${hour},${minutes},${second}`
-      }, 2000)
+    // }
 
-    }
+    // if (quiz.second >= 30) {
+
+    //   setTimeout(() => {
+
+    //     document.getElementById('text-speech').innerHTML = "seu tempo acabou meu jovem, tente novamente";
+    //     document.getElementById("play").click()
+
+    //   }, 400)
+
+
+    //   quiz.stopClick(quiz.intervalId)
+
+    //   setTimeout(() => {
+    //     window.location.href = `gameover.html?player=Payer1&pontos=${quiz.countResponseTrue}&time=${hour},${minutes},${second}`
+    //   }, 2000)
+
+    // }
 
 
 
@@ -174,17 +174,12 @@ function disableOtherOption(idField, whocall) {
 function validar(event, text) {
 
   var t = event.parentNode;
-  t.setAttribute("class", "answer-true");
+  
   quiz.idFiel = t.getAttribute("id");
   var textOption = text.getAttribute("value")
 
-
-
-
-
-
   if (quiz.checkResponse(textOption, t)) {
-
+    t.setAttribute("class", "answer-true");
     document.getElementById("play").click()
 
 
@@ -203,24 +198,21 @@ function validar(event, text) {
 
   } else {
 
-
-   
-    document.getElementById("play").click()
     quiz.stopClick(quiz.intervalId)
 
+  
     t.setAttribute("class", "answer-false")
-
+     document.getElementById("play").click()
+  
+  
     if (!quiz.status) {
+        quiz.checkConditionalElse(t.getAttribute("id"))
+    }else{
 
-
-      quiz.checkConditionalElse(t.getAttribute("id"))
-
-
-    } else {
-
+    
       quiz.checkConditionalElse()
     }
-
+  
 
     disableOtherOption(quiz.idFiel, 'constructor')
     setTimeout(() => {
