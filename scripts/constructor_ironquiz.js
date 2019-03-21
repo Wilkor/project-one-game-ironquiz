@@ -37,6 +37,7 @@ var secUni = document.getElementById("secUni");
 var milDec = document.getElementById("milDec");
 var milUni = document.getElementById("milUni");
 var pointsGame = document.getElementById("pointsgame")
+
 Quiz.prototype.shuffle = function () {
 
     this.questions.sort(function () {
@@ -113,7 +114,7 @@ Quiz.prototype.setMilliseconds = function () {
 
         }
 
-        //  milUni.innerHTML = this.milliseconds;
+       //   milUni.innerHTML = this.milliseconds;
     }
 
     if (this.milliseconds == 99) {
@@ -133,8 +134,7 @@ Quiz.prototype.setSeconds = function () {
     if (this.milliseconds == 0) {
         this.second++;
 
-
-        if (this.second < 10) {
+        if (this.second <= 10) {
 
             var splitS = this.twoDigitsNumber(this.second)
             secDec.innerHTML = splitS[0]
@@ -158,7 +158,7 @@ Quiz.prototype.setSeconds = function () {
 
 Quiz.prototype.twoDigitsNumber = function (number) {
 
-    var newNumberArray = '' + number < 10 ? "0" + number : "" + number
+    var newNumberArray = '' + number <= 10 ? "0" + number : "" + number
 
     return newNumberArray
 
@@ -167,15 +167,12 @@ Quiz.prototype.twoDigitsNumber = function (number) {
 
 Quiz.prototype.checkConditionalElse = function (optionId) {
 
-
-    console.log(optionId)
-
     var doc = document.getElementById('list-options').children
 
     if (optionId) {
 
 
-
+       
         if (optionId == "li-1") {
 
             document.getElementById("li-1").setAttribute("class", "answer-false")
@@ -193,23 +190,21 @@ Quiz.prototype.checkConditionalElse = function (optionId) {
     } else {
 
 
-        for (let index = 0; index < doc.length; index++) {
-            const element = doc[index].textContent;
+        for (let index = 0; index <= doc.length -1 ; index++) {
+           
+    
 
-            var response = element
+            var element = this.checkResponse(doc[index].textContent.split(" ")[1],'check-true');
+   
+        
+                if(element===true){
+                    doc[index].setAttribute("class","answer-true")
 
-            console.log(response.split(" ")[1])
-
-            if (this.checkResponse(response.split(" ")[1], 'check-true')) {
-
-                var t = doc[index]
-
-                t.setAttribute("class", "answer-true")
-
-                return false
-            }
+                }
 
         }
+
+     
 
     }
 
@@ -219,7 +214,7 @@ Quiz.prototype.checkConditionalElse = function (optionId) {
 
 Quiz.prototype.checkResponse = function (filter, event) {
 
-    var result = true
+    var result = ""
 
     var arrayNivel = [];
 
@@ -240,7 +235,7 @@ Quiz.prototype.checkResponse = function (filter, event) {
     }
 
 
-    arrayNivel.forEach(element => {
+ arrayNivel.forEach(element => {
 
         if (arrayNivel.indexOf(element) == 0) {
 
@@ -248,19 +243,16 @@ Quiz.prototype.checkResponse = function (filter, event) {
 
                 if (items.titleOpitons == filter) {
 
+                
                     if (items.responseOptions) {
-
 
                         if (event != 'check-true') {
 
-
-                            console.log("entrei aqui", event)
                             database.countResponseTrue = this.countResponseTrue += 10;
-                            console.log("pontos", this.countResponseTrue)
+                         
                         } else {
 
                             database.countResponseTrue = this.countResponseTrue;
-
                         }
 
                         // database.countResponseTrue = event != 'check-true' ? this.countResponseTrue += 10 : this.countResponseTrue;
@@ -272,9 +264,9 @@ Quiz.prototype.checkResponse = function (filter, event) {
 
 
                     } else {
-
-                        document.getElementById('text-speech').innerHTML = this.randonMessages(database.msgError)
                         result = false
+                        document.getElementById('text-speech').innerHTML = this.randonMessages(database.msgError)
+                      
 
                     }
                 }
@@ -305,20 +297,14 @@ Quiz.prototype.returnProbability = function (filter) {
 
 Quiz.prototype.returnSortOption = function () {
 
-
     let p = Math.floor(Math.random() * this.newListQuestion.length);
-
-
     return p
 }
 
 
 Quiz.prototype.randonMessages = function (array) {
 
-
     let index = Math.floor(Math.random() * array.length);
-
-
     return array[index]
 }
 
