@@ -82,11 +82,14 @@ function setIntervalGame() {
 function half(context) {
 
 
+
   var setID = context.getAttribute("id")
 
   if (context.getAttribute("class") == "help-one") {
 
     document.getElementById(setID).style.display = "none";
+    document.getElementById('modal-2').style.pointerEvents="none";
+    document.getElementById("modal-3").style.pointerEvents="none";
     quiz.fifth()
 
     document.getElementById('qtd-help').innerHTML = `Você usou ${quiz.qtdHelp += 1}/3 de ajuda(s)`
@@ -95,12 +98,17 @@ function half(context) {
 
     document.getElementById(setID).style.display = "none";
     document.getElementById('qtd-help').innerHTML = `Você usou ${quiz.qtdHelp += 1}/3 de ajuda(s)`
+    document.getElementById("help-1").style.pointerEvents="none";
+    document.getElementById("modal-3").style.pointerEvents="none";
+
     return false;
 
   } else if (context.getAttribute("class") == "help-three") {
 
     document.getElementById('qtd-help').innerHTML = `Você usou ${quiz.qtdHelp += 1}/3 de ajuda(s)`
     document.getElementById(setID).style.display = "none";
+    document.getElementById("help-1").style.pointerEvents="none";
+    document.getElementById("modal-2").style.pointerEvents="none";
     return false;
 
   }
@@ -179,6 +187,11 @@ function validar(event, text) {
   var textOption = text.getAttribute("value")
 
   if (quiz.checkResponse(textOption, t)) {
+
+    document.getElementById("help-1").style.pointerEvents="auto";
+    document.getElementById("modal-2").style.pointerEvents="auto";
+    document.getElementById("modal-3").style.pointerEvents="auto";
+
     t.setAttribute("class", "answer-true");
     document.getElementById("play").click()
 
@@ -196,6 +209,7 @@ function validar(event, text) {
       setIntervalGame();
     }, 2000)
 
+  
   } else {
 
     quiz.stopClick(quiz.intervalId)
